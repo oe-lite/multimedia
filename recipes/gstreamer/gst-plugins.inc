@@ -11,9 +11,6 @@ EXTRA_OECONF = "--disable-aalib --disable-shout2 --disable-sdl --disable-cdaudio
 
 acpaths = "-I ${S}/common/m4 -I ${S}/m4"
 
-OE_LT_RPATH_ALLOW = "any"
-OE_LT_RPATH_ALLOW[export]="1"
-
 LIBV = "0.10"
 
 python populate_packages_prepend () {
@@ -30,5 +27,5 @@ ALLOW_EMPTY = "1"
 PACKAGES += "${PN}-apps"
 FILES_${PN}-apps = "${bindir}"
 
-FILES_${PN} = ""
+#FILES_${PN} = ""
 FILES_${PN}-dbg += "${libdir}/gstreamer-${LIBV}/.debug"
