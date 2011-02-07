@@ -21,6 +21,20 @@ DEPENDS = "glib-dev \
            bison-native \
            flex-native" 
 
+DEPENDS_${PN} = "glib-dev \
+           		glib-libgobject-dev \
+           		glib-libgthread-dev \
+           		glib-libgmodule-dev \
+           		glib-libglib-dev \
+           		gettext-dev \
+           		libxml2-dev \
+           		${TARGET_ARCH}/sysroot-libdl \
+           		${TARGET_ARCH}/sysroot-libm \
+           		${TARGET_ARCH}/sysroot-libstdc++ \
+           		${TARGET_ARCH}/sysroot-librt \
+           		${TARGET_ARCH}/sysroot-libpthread \
+           		glib-native-utils"
+
 SRC_URI = "http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-${PV}.tar.bz2"
 
 inherit autotools pkgconfig
