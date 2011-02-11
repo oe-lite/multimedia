@@ -5,7 +5,9 @@ DESCRIPTION = "Plugins for GStreamer"
 
 inherit autotools pkgconfig auto-package-libs
 
-DEPENDS =+ "gstreamer-dev libogg-dev libvorbis-dev"
+DEPENDS =+ "gstreamer-dev libogg-dev libvorbis-dev \
+            libgstreamer-0.10 libgstbase-0.10 libgstcheck-0.10 libgstcontroller-0.10 \
+            libgstdataprotocol-0.10 libgstnet-0.10"
 
 SRC_URI = "http://gstreamer.freedesktop.org/src/${PN}/${PN}-${PV}.tar.bz2"
 

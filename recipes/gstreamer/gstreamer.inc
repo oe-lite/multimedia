@@ -5,6 +5,9 @@ HOMEPAGE = "http://gstreamer.freedesktop.org/"
 BUGTRACKER = "https://bugzilla.gnome.org/enter_bug.cgi?product=Gstreamer"
 PRIORITY = "optional"
 LICENSE = "LGPLv2+"
+
+inherit autotools pkgconfig auto-package-libs auto-package-utils
+
 DEPENDS = "glib-dev \
            glib-libgobject-dev \
            glib-libgthread-dev \
@@ -35,12 +38,31 @@ DEPENDS_${PN} = "glib-dev \
            		${TARGET_ARCH}/sysroot-libpthread \
            		glib-native-utils"
 
-SRC_URI = "http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-${PV}.tar.bz2"
+RDEPENDS_${PN}-libgstreamer-0.10 = "libglib \
+                libgobject \
+                libgthread \
+                libgmodule \
+           		libxml2 \
+           		${TARGET_ARCH}/sysroot-libdl \
+           		${TARGET_ARCH}/sysroot-libm \
+           		${TARGET_ARCH}/sysroot-libstdc++ \
+           		${TARGET_ARCH}/sysroot-librt \
+           		${TARGET_ARCH}/sysroot-libpthread"
 
-inherit autotools pkgconfig
+SRC_URI = "http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-${PV}.tar.bz2"
 
 EXTRA_OECONF = "--disable-docs-build --disable-dependency-tracking --with-check=no --disable-examples --disable-tests --disable-valgrind --disable-debug"
 
-FILES_${PN} += " ${libdir}/gstreamer-0.10/*.so"
-FILES_${PN}-dev += " ${libdir}/gstreamer-0.10/*.la ${libdir}/gstreamer-0.10/*.a"
+
+AUTO_PACKAGE_LIBS_LIBDIR = "/usr/lib/:lib: /usr/lib/gstreamer-0.10:lib:"
+AUTO_PACKAGE_LIBS_PROVIDEPREFIX = "lib"
+AUTO_PACKAGE_LIBS="\
+gstcoreelements gstbase-0.10 gstcheck-0.10 gstcontroller-0.10 \
+gstdataprotocol-0.10 gstnet-0.10 gstreamer-0.10"
+
+AUTO_PACKAGE_UTILS="\
+gst-feedback gst-feedback-0.10 gst-inspect gst-inspect-0.10 \
+gst-launch gst-launch-0.10 gst-typefind gst-typefind-0.10 \
+gst-xmlinspect gst-xmlinspect-0.10 gst-xmllaunch gst-xmllaunch-0.10"
+
 FILES_${PN}-dbg += " ${libdir}/gstreamer-0.10/.debug/"
