@@ -1,15 +1,40 @@
-require gst-plugins.inc
+PRIORITY = "optional"
+LICENSE = "LGPL"
+HOMEPAGE = "http://www.gstreamer.net/"
+DESCRIPTION = "GStreamer Base Plug-ins is a well-groomed and well-maintained collection of GStreamer plug-ins and elements"
 
-# gst-plugins-base only builds the alsa plugin
-# if alsa has been built and is present.  You will
-# not get an error if this is not present, just 
-# a missing alsa plugin
-DEPENDS += "alsa-lib"
-EXTRA_OECONF += "--disable-pango"
+inherit gst-plugins autotools pkgconfig auto-package-libs
 
-AUTO_PACKAGE_LIBS_LIBDIR = "/usr/lib:libgst: /usr/lib/gstreamer-0.10:libgst:"
+require gst-plugins-base-options.inc
+
+RDEPENDS_${PN}-libinterfaces-0.10 += "gstreamer-libgstbase-0.10"
+RDEPENDS_${PN}-libaudio-0.10 += "${PN}-libinterfaces-0.10"
+RDEPENDS_${PN}-libapp-0.10 += "gstreamer-libgstbase-0.10"
+RDEPENDS_${PN}-libvideo-0.10 += "gstreamer-libgstbase-0.10"
+RDEPENDS_${PN}-libpbutils-0.10 += "${PN}-libvideo-0.10"
+
+RDEPENDS_${PN}-libadder += "${PN}-libaudio-0.10"
+RDEPENDS_${PN}-libapp += "${PN}-libapp-0.10"
+RDEPENDS_${PN}-libaudioconvert += "${PN}-libaudio-0.10"
+RDEPENDS_${PN}-libaudiorate += "gstreamer-libgstreamer-0.10"
+RDEPENDS_${PN}-libaudioresample += "gstreamer-libgstbase-0.10"
+RDEPENDS_${PN}-libaudiotestsrc += "gstreamer-libgstbase-0.10 gstreamer-libgstcontroller-0.10"
+RDEPENDS_${PN}-libdecodebin2 += "${PN}-libpbutils-0.10"
+RDEPENDS_${PN}-libdecodebin += "${PN}-libpbutils-0.10"
+RDEPENDS_${PN}-libffmpegcolorspace += "${PN}-libvideo-0.10"
+RDEPENDS_${PN}-libgdp += "gstreamer-libgstbase-0.10 gstreamer-libgstdataprotocol-0.10"
+RDEPENDS_${PN}-libplaybin += "${PN}-libinterfaces-0.10 ${PN}-libpbutils-0.10"
+RDEPENDS_${PN}-libsubparse += "gstreamer-libgstbase-0.10"
+RDEPENDS_${PN}-libtcp += "gstreamer-libgstbase-0.10 gstreamer-libgstdataprotocol-0.10"
+RDEPENDS_${PN}-libtypefindfunctions += "${PN}-libpbutils-0.10"
+RDEPENDS_${PN}-libvideorate += "gstreamer-libgstreamer-0.10"
+RDEPENDS_${PN}-libvideoscale += "${PN}-libvideo-0.10"
+RDEPENDS_${PN}-libvideotestsrc += "gstreamer-libgstbase-0.10"
+RDEPENDS_${PN}-libvolume += "${PN}-libaudio-0.10 gstreamer-libgstcontroller-0.10"
+
+AUTO_PACKAGE_LIBS_LIBDIR = "/usr/lib:libgst /usr/lib/gstreamer-0.10:libgst::.so"
 AUTO_PACKAGE_LIBS_PROVIDEPREFIX="gst-plugin-"
-AUTO_PACKAGE_LIBS="\
+AUTO_PACKAGE_LIBS += "\
 #from /usr/lib/
 audio-0.10 \
 tag-0.10 \
@@ -35,10 +60,7 @@ volume \
 tcp \
 videorate \
 audiorate \
-vorbis \
 ffmpegcolorspace \
-video4linux \
-ogg \
 gdp \
 subparse \
 playbin \
