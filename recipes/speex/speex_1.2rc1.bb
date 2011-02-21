@@ -17,6 +17,8 @@ EXTRA_OECONF = " --enable-fixed-point --with-ogg-libraries=${STAGE_DIR}/sysroot/
 
 PACKAGES += "${PN}-bin"
 
+PROVIDES_${PN} = "lib${PN}"
+
 FILES_${PN} = "${libdir}/lib*.so.*"
 FILES_${PN}-dev += "${libdir}/lib*.so.*"
 FILES_${PN}-bin = "${bindir}"
