@@ -6,7 +6,7 @@ BUGTRACKER = "https://bugzilla.gnome.org/enter_bug.cgi?product=Gstreamer"
 PRIORITY = "optional"
 LICENSE = "LGPLv2+"
 
-inherit autotools pkgconfig auto-package-libs auto-package-utils
+inherit autotools-autoreconf pkgconfig auto-package-libs auto-package-utils
 
 SRC_URI = "http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-${PV}.tar.bz2"
 
