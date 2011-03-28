@@ -3,7 +3,7 @@ LICENSE = "LGPL"
 HOMEPAGE = "http://www.gstreamer.net/"
 DESCRIPTION = "GStreamer Good Plug-ins is a set of plug-ins that we consider to have good quality code and correct functionality."
 
-inherit gst-plugins autotools pkgconfig auto-package-libs
+inherit gst-plugins autotools-autoreconf pkgconfig auto-package-libs
 
 require gst-plugins-good-options.inc
 

@@ -3,7 +3,7 @@ LICENSE = "LGPL"
 HOMEPAGE = "http://www.gstreamer.net/"
 DESCRIPTION = "GStreamer Base Plug-ins is a well-groomed and well-maintained collection of GStreamer plug-ins and elements"
 
-inherit gst-plugins autotools pkgconfig auto-package-libs
+inherit gst-plugins autotools-autoreconf pkgconfig auto-package-libs
 
 require gst-plugins-base-options.inc
 
