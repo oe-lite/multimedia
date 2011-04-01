@@ -78,3 +78,4 @@ gst-launch gst-launch-0.10 gst-typefind gst-typefind-0.10 \
 gst-xmlinspect gst-xmlinspect-0.10 gst-xmllaunch gst-xmllaunch-0.10"
 
 FILES_${PN}-dbg += " ${libdir}/gstreamer-0.10/.debug/"
+FILES_${PN}-dbg += " ${libexecdir}/gstreamer-0.10/.debug/"
