@@ -7,10 +7,11 @@ DEPENDS += "${TARGET_ARCH}/sysroot-libdl \
 			${TARGET_ARCH}/sysroot-libpthread \
 			${TARGET_ARCH}/sysroot-libm"
 
-inherit autotools-autoreconf pkgconfig
+inherit autotools-autoreconf pkgconfig mdev
 
-SRC_URI = "ftp://ftp.alsa-project.org/pub/lib/alsa-lib-${PV}.tar.bz2"
-
+SRC_URI = "ftp://ftp.alsa-project.org/pub/lib/alsa-lib-${PV}.tar.bz2 \
+file://mdev.conf \
+"
 
 EXTRA_OECONF = "--with-cards=pdaudiocf --with-oss=yes --disable-python"
 
