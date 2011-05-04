@@ -7,10 +7,11 @@ DEPENDS += "${TARGET_ARCH}/sysroot-libdl \
 			${TARGET_ARCH}/sysroot-libpthread \
 			${TARGET_ARCH}/sysroot-libm"
 
-inherit autotools pkgconfig
+inherit autotools-autoreconf pkgconfig mdev
 
-SRC_URI = "ftp://ftp.alsa-project.org/pub/lib/alsa-lib-${PV}.tar.bz2"
-
+SRC_URI = "ftp://ftp.alsa-project.org/pub/lib/alsa-lib-${PV}.tar.bz2 \
+file://mdev.conf \
+"
 
 EXTRA_OECONF = "--with-cards=pdaudiocf --with-oss=yes --disable-python"
 
@@ -21,6 +22,11 @@ PROVIDES_${PN}-libasound = "libasound"
 PROVIDES_${PN}-alsa-conf-base = "alsa-conf-base"
 PROVIDES_${PN}-alsa-doc = "alsa-doc"
 PROVIDES_${PN}-alsa-dev = "alsa-dev"
+RPROVIDES_${PN}-alsa-server = "alsa-server"
+RPROVIDES_${PN}-libasound = "libasound"
+RPROVIDES_${PN}-alsa-conf-base = "alsa-conf-base"
+RPROVIDES_${PN}-alsa-doc = "alsa-doc"
+RPROVIDES_${PN}-alsa-dev = "alsa-dev"
 
 FILES_${PN}-dbg += "${libdir}/alsa-lib/*/.debu*"
 FILES_${PN}-libasound = "${libdir}/libasound.so.*"
@@ -34,4 +40,5 @@ ${datadir}/alsa/pcm/default.conf \
 ${datadir}/alsa/pcm/dmix.conf \
 ${datadir}/alsa/pcm/dsnoop.conf"
 
-RDEPENDS_libasound = "alsa-conf-base"
+RDEPENDS_${PN}-libasound += "alsa-conf-base"
+DEPENDS_${PN}-libasound += "${PN}-alsa-dev ${PN}-dev"

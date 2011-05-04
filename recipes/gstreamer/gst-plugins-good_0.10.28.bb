@@ -1,4 +1,3 @@
-PRIORITY = "optional"
 LICENSE = "LGPL"
 HOMEPAGE = "http://www.gstreamer.net/"
 DESCRIPTION = "GStreamer Good Plug-ins is a set of plug-ins that we consider to have good quality code and correct functionality."
@@ -26,7 +25,7 @@ gst-plugin-rtsp-0.10 \
 gst-plugin-rtp-0.10 \
 "
 RDEPENDS_${PN}-libalaw += "gstreamer-libgstreamer-0.10"
-RDEPENDS_${PN}-libalphacolor += "gstreamer-libbase-0.10 gst-plugin-video-0.10"
+RDEPENDS_${PN}-libalphacolor += "gstreamer-libgstbase-0.10 gst-plugin-video-0.10"
 RDEPENDS_${PN}-libalpha += "gstreamer-libgstbase-0.10 gstreamer-libgstcontroller-0.10 gst-plugin-video-0.10"
 RDEPENDS_${PN}-libannodex += "gstreamer-libgstbase-0.10"
 RDEPENDS_${PN}-libapetag += "gst-plugin-pbutils-0.10 gst-plugin-tag-0.10"
