@@ -4,7 +4,7 @@ DEPENDS =+ "gstreamer-dev \
 
 SRC_URI += "http://gstreamer.freedesktop.org/src/${PN}/${PN}-${PV}.tar.bz2"
 
-EXTRA_OECONF += "--disable-orc --x-includes=${STAGE_DIR}/sysroot/usr/include --x-libraries=${STAGE_DIR}/sysroot/usr/lib "
+EXTRA_OECONF += "--disable-orc --x-includes=${STAGE_DIR}/machine/usr/include --x-libraries=${STAGE_DIR}/machine/usr/lib "
 
 acpaths += "-I ${S}/common/m4 -I ${S}/m4"
 
