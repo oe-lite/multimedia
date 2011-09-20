@@ -2,7 +2,7 @@ LICENSE = "LGPL"
 HOMEPAGE = "http://www.gstreamer.net/"
 DESCRIPTION = "GStreamer Good Plug-ins is a set of plug-ins that we consider to have good quality code and correct functionality."
 
-inherit gst-plugins autotools-autoreconf pkgconfig auto-package-libs
+inherit gst-plugins autotools-autoreconf pkgconfig auto-package-libs make
 
 require gst-plugins-good-options.inc
 
@@ -74,7 +74,7 @@ RDEPENDS_${PN}-liby4menc += "gstreamer-libgstreamer-0.10"
 
 AUTO_PACKAGE_LIBS_LIBDIR = "/usr/lib/gstreamer-0.10:libgst::.so"
 AUTO_PACKAGE_LIBS_PROVIDEPREFIX="gst-plugin-"
-AUTO_PACKAGE_LIBS="\ 
+AUTO_PACKAGE_LIBS="\
 oss4audio \
 mulaw \
 annodex \
@@ -122,3 +122,6 @@ rtp \
 id3demux \
 videobox \
 flxdec"
+
+FILES_${PN}-doc += "${datadir}/gtk-doc/"
+FILES_${PN} += "${datadir}/gstreamer-0.10/presets/"

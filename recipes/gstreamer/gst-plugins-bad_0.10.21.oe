@@ -47,3 +47,4 @@ directfb \
 libz \
 libts \
 "
+FILES_${PN}-doc += "${datadir}/gtk-doc/"
