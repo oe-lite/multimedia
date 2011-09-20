@@ -13,39 +13,39 @@ SRC_URI = "http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-${PV}.tar.bz
 EXTRA_OECONF = "--disable-docs-build --disable-dependency-tracking --with-check=no --disable-examples --disable-tests --disable-valgrind --disable-debug"
 
 CDEP = "glib-dev \
-     glib-libgobject-dev \
-     glib-libgthread-dev \
-     glib-libgmodule-dev \
-     glib-libglib-dev \
-     gettext-dev \
-     libxml2-dev \
-     ${TARGET_ARCH}/sysroot-libdl \
-     ${TARGET_ARCH}/sysroot-libm \
-     ${TARGET_ARCH}/sysroot-libstdc++ \
-     ${TARGET_ARCH}/sysroot-librt \
-     ${TARGET_ARCH}/sysroot-libpthread \
-     glib-native-utils \
-     "
+	glib-libgobject \
+	glib-libgthread \
+	glib-libgmodule \
+	glib-libglib \
+	gettext \
+	libxml2 \
+	libdl \
+	libm \
+	libstdc++ \
+	librt \
+	libpthread \
+	native:glib-utils \
+	"
 
 DEPENDS += "${CDEP} \
-	bison-native \
-	flex-native\
+	native:bison \
+	native:flex \
 	"
 
 DEPENDS_${PN} += "${CDEP} \
-              "
+	"
 
 RDEPENDS_${PN}-libgstreamer-0.10 += "libglib \
-                gstreamer \
-                libgobject \
-                libgthread \
-                libgmodule \
-          	libxml2 \
-          	${TARGET_ARCH}/sysroot-libdl \
-          	${TARGET_ARCH}/sysroot-libm \
-          	${TARGET_ARCH}/sysroot-libstdc++ \
-          	${TARGET_ARCH}/sysroot-librt \
-          	${TARGET_ARCH}/sysroot-libpthread"
+	gstreamer \
+	libgobject \
+	libgthread \
+	libgmodule \
+	libxml2 \
+	libdl \
+	libm \
+	libstdc++ \
+	librt \
+	libpthread"
 
 RDEPENDS_${PN}-libgstbase-0.10 += "${PN}-libgstreamer-0.10"
 RDEPENDS_${PN}-libgstcontroller-0.10 += "${PN}-libgstreamer-0.10"
@@ -79,3 +79,4 @@ gst-xmlinspect gst-xmlinspect-0.10 gst-xmllaunch gst-xmllaunch-0.10"
 
 FILES_${PN}-dbg += " ${libdir}/gstreamer-0.10/.debug/"
 FILES_${PN}-dbg += " ${libexecdir}/gstreamer-0.10/.debug/"
+FILES_${PN}-doc += " ${datadir}/gtk-doc"
