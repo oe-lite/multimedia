@@ -3,7 +3,7 @@ HOMEPAGE = "http://www.alsa-project.org"
 BUGTRACKER = "https://bugtrack.alsa-project.org/alsa-bug/login_page.php"
 SECTION = "console/utils"
 LICENSE = "GPLv2+"
-DEPENDS = "libasound ${HOST_ARCH}/sysroot-libpthread ${HOST_ARCH}/sysroot-libgcc ${HOST_ARCH}/sysroot-libdl"
+DEPENDS = "libasound libpthread libgcc libdl"
 
 SRC_URI = "ftp://ftp.alsa-project.org/pub/utils/alsa-utils-${PV}.tar.bz2 \
            "
@@ -23,7 +23,9 @@ PACKAGES += "\
              ${PN}-aseqnet \
              ${PN}-aseqdump \
              ${PN}-alsaconf \
-             ${PN}-alsactl "
+             ${PN}-alsactl \
+             ${PN}-alsaucm \
+             ${PN}-udevrules"
 
 FILES_${PN} = ""
 FILES_${PN}-aplay       = "${bindir}/aplay ${bindir}/arecord"
@@ -37,11 +39,13 @@ FILES_${PN}-iecset      = "${bindir}/iecset"
 FILES_${PN}-alsactl     = "${sbindir}/alsactl"
 FILES_${PN}-aseqdump    = "${bindir}/aseqdump"
 FILES_${PN}-alsaconf    = "${sbindir}/alsaconf"
+FILES_${PN}-alsaucm     = "${bindir}/alsaucm"
+FILES_${PN}-udevrules   = "/lib/udev/rules.d/"
 
-RD = "libasound ${HOST_ARCH}/sysroot-libpthread ${HOST_ARCH}/sysroot-libdl"
-RDEPENDS_${PN}-aplay       = "${RD} ${HOST_ARCH}/sysroot-libgcc"
+RD = "libasound libpthread libdl"
+RDEPENDS_${PN}-aplay       = "${RD} libgcc"
 RDEPENDS_${PN}-amixer      = "${RD}"
-RDEPENDS_${PN}-alsaloop    = "${RD} ${HOST_ARCH}/sysroot-libgcc"
+RDEPENDS_${PN}-alsaloop    = "${RD} libgcc"
 RDEPENDS_${PN}-speakertest = "${RD}"
 RDEPENDS_${PN}-midi        = "${RD}"
 RDEPENDS_${PN}-aconnect    = "${RD}"
