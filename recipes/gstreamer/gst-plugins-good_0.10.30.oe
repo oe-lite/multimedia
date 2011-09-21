@@ -1,0 +1,71 @@
+LICENSE = "LGPL"
+HOMEPAGE = "http://www.gstreamer.net/"
+DESCRIPTION = "GStreamer Good Plug-ins is a set of plug-ins that we consider to have good quality code and correct functionality."
+
+inherit gst-plugins autotools-autoreconf pkgconfig make
+
+require gst-plugins-good-options.inc
+
+EXTRA_OECONF += "--with-check=no --disable-aalib --disable-libcaca --disable-esd"
+
+FILES_${PN} = ""
+RDEPENDS_${PN} += "libgstbase"
+
+DEPENDS += "libgstbase"
+
+inherit auto-package-libs
+AUTO_PACKAGE_LIBS = "\
+alaw \
+alphacolor \
+alpha \
+annodex \
+apetag \
+audiofx \
+audioparsers \
+auparse \
+autodetect \
+avi \
+cutter \
+debug \
+deinterlace \
+effectv \
+equalizer \
+flv \
+flxdec \
+goom2k1 \
+goom \
+icydemux \
+id3demux \
+imagefreeze \
+interleave \
+isomp4 \
+level \
+matroska \
+mulaw \
+multifile \
+multipart \
+navigationtest \
+oss4audio \
+ossaudio \
+replaygain \
+rtpmanager \
+rtp \
+rtsp \
+shapewipe \
+smpte \
+spectrum \
+udp \
+video4linux2 \
+videobox \
+videocrop \
+videofilter \
+videomixer \
+wavenc \
+wavparse \
+y4menc \
+"
+
+FILES_${PN}-libequalizer += "${datadir}/gstreamer-${LIBV}/presets/"
+
+RDEPENDS_${PN}-all = "${LIBS_AUTO_PACKAGES}"
+PROVIDES_${PN}-all = "gst-plugins-good"

@@ -6,77 +6,63 @@ BUGTRACKER = "https://bugzilla.gnome.org/enter_bug.cgi?product=Gstreamer"
 PRIORITY = "optional"
 LICENSE = "LGPLv2+"
 
-inherit autotools-autoreconf pkgconfig auto-package-libs auto-package-utils
+inherit autotools-autoreconf pkgconfig c auto-package-utils
 
-SRC_URI = "http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-${PV}.tar.bz2"
+SRC_URI = "http://gstreamer.freedesktop.org/src/${PN}/${PN}-${PV}.tar.bz2"
 
-EXTRA_OECONF = "--disable-docs-build --disable-dependency-tracking --with-check=no --disable-examples --disable-tests --disable-valgrind --disable-debug"
+EXTRA_OECONF = " \
+--disable-docs-build \
+--disable-dependency-tracking \
+--with-check=no \
+--disable-examples \
+--disable-tests \
+--disable-valgrind \
+--disable-debug \
+"
 
-CDEP = "glib-dev \
-	glib-libgobject \
-	glib-libgthread \
-	glib-libgmodule \
-	glib-libglib \
-	gettext \
-	libxml2 \
-	libdl \
-	libm \
-	libstdc++ \
-	librt \
-	libpthread \
-	native:glib-utils \
-	"
+COMMON_DEP = "\
+glib-libgobject \
+glib-libgthread \
+glib-libgmodule \
+glib-libglib \
+libxml2 \
+libdl \
+libm \
+librt \
+libpthread \
+"
 
-DEPENDS += "${CDEP} \
-	native:bison \
-	native:flex \
-	"
+DEPENDS += " \
+${COMMON_DEP} \
+native:bison \
+native:flex \
+native:glib-utils \
+gettext \
+"
 
-DEPENDS_${PN} += "${CDEP} \
-	"
+LIBV = "0.10"
 
-RDEPENDS_${PN}-libgstreamer-0.10 += "libglib \
-	gstreamer \
-	libgobject \
-	libgthread \
-	libgmodule \
-	libxml2 \
-	libdl \
-	libm \
-	libstdc++ \
-	librt \
-	libpthread"
+AUTO_PACKAGE_UTILS = " \
+gst-feedback gst-feedback-${LIBV} \
+gst-inspect gst-inspect-${LIBV} \
+gst-launch gst-launch-${LIBV} \
+gst-typefind gst-typefind-${LIBV} \
+gst-xmlinspect gst-xmlinspect-${LIBV} \
+gst-xmllaunch gst-xmllaunch-${LIBV} \
+"
 
-RDEPENDS_${PN}-libgstbase-0.10 += "${PN}-libgstreamer-0.10"
-RDEPENDS_${PN}-libgstcontroller-0.10 += "${PN}-libgstreamer-0.10"
-RDEPENDS_${PN}-libgstdataprotocol-0.10 += "${PN}-libgstreamer-0.10"
-RDEPENDS_${PN}-libgstcoreindexers += "${PN}-libgstreamer-0.10"
-RDEPENDS_${PN}-libgstcoreelements += "${PN}-libgstbase-0.10"
+AUTO_PACKAGE_UTILS_RDEPENDS = "${PN}"
 
-AUTO_PACKAGE_LIBS_LIBDIR = "/usr/lib /usr/lib/gstreamer-0.10:lib::.so"
-AUTO_PACKAGE_LIBS="\
-gstcoreindexers \
-gstcoreelements gstbase-0.10 gstcheck-0.10 gstcontroller-0.10 \
-gstdataprotocol-0.10 gstnet-0.10 gstreamer-0.10"
+FILES_${PN} = "\
+${base_libdir}/*${SOLIBS} \
+${libexecdir}/${PN}-${LIBV}/gst-* ${libdir}/lib*${SOLIBS} ${libdir}/${PN}-${LIBV}/*.so \
+"
 
-RDEPENDS_${PN}-gst-inspect-0.10 += "${PN}-libgstreamer-0.10"
-RDEPENDS_${PN}-gst-inspect += "${PN}-gst-inspect-0-10"
-RDEPENDS_${PN}-gst-feedback-0.10 = ""
-RDEPENDS_${PN}-gst-feedback += "${PN}-gst-feedback-0-10"
-RDEPENDS_${PN}-gst-launch-0.10 += "${PN}-libgstreamer-0.10"
-RDEPENDS_${PN}-gst-launch += "${PN}-gst-launch-0-10"
-RDEPENDS_${PN}-gst-typefind-0.10 += "${PN}-libgstreamer-0.10"
-RDEPENDS_${PN}-gst-typefind += "${PN}-gst-typefind-0-10"
-RDEPENDS_${PN}-gst-xmlinspect-0.10 += "${PN}-libgstreamer-0.10"
-RDEPENDS_${PN}-gst-xmlinspect += "${PN}-gst-xmlinspect-0-10"
-RDEPENDS_${PN}-gst-xmllaunch-0.10 += "${PN}-libgstreamer-0.10"
-RDEPENDS_${PN}-gst-xmllaunch += "${PN}-gst-xmllaunch-0-10"
+PROVIDES_${PN} = "lib${PN}"
+RDEPENDS_${PN} += "${COMMON_DEP}"
+DEPENDS_${PN} += "${COMMON_DEP} ${PN}-dev_${PV}"
+DEPENDS_${PN}-dev = ""
 
-AUTO_PACKAGE_UTILS="\
-gst-feedback gst-feedback-0.10 gst-inspect gst-inspect-0.10 \
-gst-launch gst-launch-0.10 gst-typefind gst-typefind-0.10 \
-gst-xmlinspect gst-xmlinspect-0.10 gst-xmllaunch gst-xmllaunch-0.10"
-
-FILES_${PN}-dbg += " ${libdir}/gstreamer-0.10/.debug/"
-FILES_${PN}-dbg += " ${libexecdir}/gstreamer-0.10/.debug/"
-FILES_${PN}-doc += " ${datadir}/gtk-doc"
+FILES_${PN}-dev += "${libdir}/gstreamer-${LIBV}/*.la"
+FILES_${PN}-doc += "${datadir}/gtk-doc/"
+FILES_${PN}-dbg += "${libdir}/gstreamer-${LIBV}/.debug ${libexecdir}/${PN}-${LIBV}/.debug"

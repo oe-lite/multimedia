@@ -1,10 +1,11 @@
 # FIXME: Currently recipe option overwrites on auto package vars do
 # not work. Always define a package which will be empty if option is
 # unset
-RECIPE_OPTIONS += "alsa"
-DEPENDS_append_RECIPE_OPTION_alsa = "libasound"
-ALSA_LIBS = "alsa"
-RDEPENDS_${PN}-libalsa_append_RECIPE_OPTION_alsa = "libasound"
+RECIPE_FLAGS += "alsa"
+DEPENDS:>USE_alsa += " libasound"
+#AUTO_PACKAGE_LIBS:>USE_alsa += " alsa"
+#RDEPENDS_${PN}-libalsa:>USE_alsa = "libasound"
+RDEPENDS_${PN}-plugins:>USE_alsa += " libasound"
 
 RECIPE_OPTIONS += "vorbis"
 VORBIS_OECONF = "--disable-vorbis"
@@ -35,7 +36,6 @@ AUTO_PACKAGE_LIBS += " \
 ${VORBIS_LIBS} \
 ${OGG_LIBS} \
 ${V4L_LIBS} \
-${ALSA_LIBS} \
 "
 EXTRA_OECONF += " \
 ${VORBIS_OECONF} \

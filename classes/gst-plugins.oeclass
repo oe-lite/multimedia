@@ -1,6 +1,11 @@
-DEPENDS =+ "gstreamer-dev \
-            libgstreamer-0.10 libgstbase-0.10 libgstcheck-0.10 libgstcontroller-0.10 \
-            libgstdataprotocol-0.10 libgstnet-0.10"
+DEPENDS =+ "libgstreamer \
+native:bison \
+native:flex \
+native:glib-utils \
+gettext \
+"
+FILES_${PN}-doc += "${datadir}/gtk-doc/"
+RDEPENDS_${PN} += "libgstreamer"
 
 SRC_URI += "http://gstreamer.freedesktop.org/src/${PN}/${PN}-${PV}.tar.bz2"
 
@@ -8,5 +13,7 @@ EXTRA_OECONF += "--disable-orc --x-includes=${STAGE_DIR}/machine/usr/include --x
 
 acpaths += "-I ${S}/common/m4 -I ${S}/m4"
 
-LIBV = "0.10"
+AUTO_PACKAGE_LIBS_LIBDIR = "${libdir}/gstreamer-${LIBV}:libgst::.so:.la,.a"
+AUTO_PACKAGE_LIBS_PROVIDEPREFIX="gst-plugin-"
+LIBV ?= "0.10"
 FILES_${PN}-dbg += "${libdir}/gstreamer-${LIBV}/.debug"
