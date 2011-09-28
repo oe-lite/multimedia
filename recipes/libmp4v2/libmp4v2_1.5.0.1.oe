@@ -1,0 +1,9 @@
+DESCRIPTION = "This library provides functions to read, create, and modify mp4 files"
+LICENSE = "MPL LGPL2"
+inherit c++ autotools-autoreconf
+
+DEPENDS += "\
+    libm libdl libgcc libc libstdc++ \
+"
+
+SRC_URI = "http://resare.com/libmp4v2/dist/${PN}-${PV}.tar.bz2"
