@@ -4,6 +4,8 @@ HOMEPAGE = "http://www.fluendo.com/shop/product/fluendo-mp3-decoder/"
 DESCRIPTION = "Fluendo mpeg demuxer GStreamer plugin"
 
 inherit gst-plugins autotools pkgconfig auto-package-libs
-
+DEPENDS += "liboil"
+EXTRA_OECONF += "--with-liboil"
+RDEPENDS_${PN}-libgstflumpegdemux = "liboil"
 AUTO_PACKAGE_LIBS="flumpegdemux"
 SRC_URI = "http://core.fluendo.com/gstreamer/src/${PN}/${PN}-${PV}.tar.bz2"
