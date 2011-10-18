@@ -2,6 +2,8 @@ DEPENDS =+ "libgstreamer \
 native:bison \
 native:flex \
 native:glib-utils \
+native:orc \
+liborc liborc-test \
 gettext \
 "
 FILES_${PN}-doc += "${datadir}/gtk-doc/"
@@ -9,7 +11,7 @@ RDEPENDS_${PN} += "libgstreamer"
 
 SRC_URI += "http://gstreamer.freedesktop.org/src/${PN}/${PN}-${PV}.tar.bz2"
 
-EXTRA_OECONF += "--disable-orc --x-includes=${STAGE_DIR}/machine/usr/include --x-libraries=${STAGE_DIR}/machine/usr/lib "
+EXTRA_OECONF += "--x-includes=${STAGE_DIR}/machine/usr/include --x-libraries=${STAGE_DIR}/machine/usr/lib "
 
 acpaths += "-I ${S}/common/m4 -I ${S}/m4"
 

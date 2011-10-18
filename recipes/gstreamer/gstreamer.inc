@@ -37,6 +37,8 @@ ${COMMON_DEP} \
 native:bison \
 native:flex \
 native:glib-utils \
+native:orc \
+liborc liborc-test \
 gettext \
 "
 
