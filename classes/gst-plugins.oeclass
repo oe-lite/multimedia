@@ -12,8 +12,13 @@ def configure_use_flags(d):
         else:
             conf = use
 
+        if 'val' in flag:
+            val = flag['val']
+        else:
+            val = "0"
+
         d.append("RECIPE_FLAGS", use, " ")
-        d.set("DEFAULT_USE_" + use, "0")
+        d.set("DEFAULT_USE_" + use, val)
 
         d.set("%s_EXTRA_OECONF"%(use.upper()),
               " --disable-" + conf)
@@ -22,19 +27,20 @@ def configure_use_flags(d):
                        " --enable-" + conf)
         d.append("EXTRA_OECONF","${%s_EXTRA_OECONF}"%(use.upper()))
 
-        if 'autolib' in flag:
-            d.set_override("AUTO_PACKAGE_LIBS", (">","USE_" + use),
-                           flag['autolib'])
 
         if 'depend' in flag:
             d.set_override("DEPENDS",
                            (">","USE_" + use),
-                           flag['depend'])
+                           flag['depend'].replace(',',' '))
 
-        if 'rdepend' in flag:
+        if 'autolib' in flag:
+            d.set_override("AUTO_PACKAGE_LIBS", (">","USE_" + use),
+                           flag['autolib'].replace(',',' '))
+
+        if 'autordepend' in flag and 'autolib' in flag:
             d.set_override("RDEPENDS_${PN}-${AUTO_PACKAGE_LIBS_PKGPREFIX}" + use,
                            ("","USE_" + use),
-                           flag['rdepend'])
+                           flag['autordepend'].replace(',',' '))
 
 DEPENDS =+ "libgstreamer \
 native:bison \

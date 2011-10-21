@@ -5,9 +5,9 @@ DESCRIPTION = "GStreamer Base Plug-ins is a well-groomed and well-maintained col
 
 inherit gst-plugins autotools-autoreconf pkgconfig
 
-CONFIGURE_USE_FLAGS = "use=vorbis:depend=libvorbis:autolib=vorbis:rdepend=libvorbis"
-CONFIGURE_USE_FLAGS += "use=alsa:depend=libasound:autolib=alsa:rdepend=libasound"
-CONFIGURE_USE_FLAGS += "use=ogg:depend=libogg:autolib=ogg:rdepend=libogg"
+CONFIGURE_USE_FLAGS = "use=vorbis:depend=libvorbis:autolib=vorbis:autordepend=libvorbis"
+CONFIGURE_USE_FLAGS += "use=alsa:depend=libasound:autolib=alsa:autordepend=libasound"
+CONFIGURE_USE_FLAGS += "use=ogg:depend=libogg:autolib=ogg:autordepend=libogg"
 CONFIGURE_USE_FLAGS += "use=video4linux:conf=gst_v4l:autolib=video4linux"
 
 FILES_${PN} = "\

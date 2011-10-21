@@ -4,9 +4,9 @@ DESCRIPTION = "GStreamer Good Plug-ins is a set of plug-ins that we consider to 
 
 inherit gst-plugins autotools-autoreconf pkgconfig make
 
-CONFIGURE_USE_FLAGS = "use=flac:depend=libflac:autolib=flac:rdepend=libflac"
-CONFIGURE_USE_FLAGS += "use=speex:depend=libspeex:autolib=speex:rdepend=libspeex"
-CONFIGURE_USE_FLAGS += "use=shout2:depend=libshout2:autolib=shout2:rdepend=libshout2"
+CONFIGURE_USE_FLAGS = "use=flac:depend=libflac:autolib=flac:autordepend=libflac"
+CONFIGURE_USE_FLAGS += "use=speex:depend=libspeex:autolib=speex:autordepend=libspeex"
+CONFIGURE_USE_FLAGS += "use=shout2:depend=libshout2:autolib=shout2:autordepend=libshout2"
 
 EXTRA_OECONF += "--with-check=no --disable-aalib --disable-libcaca --disable-esd"
 
