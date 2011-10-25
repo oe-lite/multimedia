@@ -29,7 +29,7 @@ RPROVIDES_${PN}-alsa-doc = "alsa-doc"
 RPROVIDES_${PN}-alsa-dev = "alsa-dev"
 
 FILES_${PN}-dbg += "${libdir}/alsa-lib/*/.debu*"
-FILES_${PN}-libasound = "${libdir}/libasound.so.*"
+FILES_${PN}-libasound = "${libdir}/libasound.so.* ${mdevdir}"
 FILES_${PN}-alsa-server = "${bindir}/*"
 FILES_${PN}-alsa-conf = "${datadir}/alsa/"
 FILES_${PN}-alsa-dev += "${libdir}/pkgconfig/ /usr/include/ ${datadir}/aclocal/*"
