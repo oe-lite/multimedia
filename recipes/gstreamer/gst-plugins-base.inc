@@ -49,6 +49,5 @@ videoscale \
 videotestsrc \
 volume \
 "
-
-RDEPENDS_${PN}-all = "${LIBS_AUTO_PACKAGES}"
-PROVIDES_${PN}-all = "gst-plugins-base"
+PACKAGES += "${PN}-all"
+RDEPENDS_${PN}-all = "${LIBS_AUTO_RPACKAGES}"

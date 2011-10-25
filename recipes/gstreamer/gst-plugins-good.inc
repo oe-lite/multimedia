@@ -69,5 +69,5 @@ y4menc \
 
 FILES_${PN}-libequalizer += "${datadir}/gstreamer-${LIBV}/presets/"
 
-RDEPENDS_${PN}-all = "${LIBS_AUTO_PACKAGES}"
-PROVIDES_${PN}-all = "gst-plugins-good"
+PACKAGES += "${PN}-all"
+RDEPENDS_${PN}-all = "${LIBS_AUTO_RPACKAGES}"

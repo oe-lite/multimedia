@@ -35,5 +35,5 @@ mpegstream \
 rmdemux \
 "
 
-RDEPENDS_${PN}-all = "${LIBS_AUTO_PACKAGES}"
-PROVIDES_${PN}-all = "gst-plugins-ugly"
+PACKAGES += "${PN}-all"
+RDEPENDS_${PN}-all = "${LIBS_AUTO_RPACKAGES}"

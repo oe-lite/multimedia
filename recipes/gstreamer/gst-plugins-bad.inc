@@ -104,8 +104,8 @@ vmnc \
 y4mdec \
 "
 
-RDEPENDS_${PN}-all = "${LIBS_AUTO_PACKAGES}"
-PROVIDES_${PN}-all = "gst-plugins-bad"
+PACKAGES += "${PN}-all"
+RDEPENDS_${PN}-all = "${LIBS_AUTO_RPACKAGES}"
 
 RDEPENDS_${PN}-fieldanalysis += "${PN}"
 RDEPENDS_${PN}-camerabin += "${PN}"
