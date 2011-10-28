@@ -30,6 +30,7 @@ libdl \
 libm \
 librt \
 libpthread \
+liborc liborc-test \
 "
 
 DEPENDS += " \
@@ -38,7 +39,6 @@ native:bison \
 native:flex \
 native:glib-utils \
 native:orc \
-liborc liborc-test \
 gettext \
 "
 
