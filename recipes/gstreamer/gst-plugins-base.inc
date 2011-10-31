@@ -25,7 +25,9 @@ gst-visualise-0.10 \
 gst-discoverer-0.10 \
 "
 
+RDEPENDS_${PN}-gst-visualise-0-10 += "perl"
 AUTO_PACKAGE_UTILS_RDEPENDS = "${PN}"
+AUTO_PACKAGE_LIBS_RDEPENDS = "${PN}"
 
 inherit auto-package-libs
 AUTO_PACKAGE_LIBS = "\

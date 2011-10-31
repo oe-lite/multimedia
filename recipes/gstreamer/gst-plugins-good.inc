@@ -12,6 +12,7 @@ EXTRA_OECONF += "--with-check=no --disable-aalib --disable-libcaca --disable-esd
 
 FILES_${PN} = ""
 RDEPENDS_${PN} += "libgstbase"
+AUTO_PACKAGE_LIBS_RDEPENDS = "libgstbase"
 
 DEPENDS += "libgstbase"
 
