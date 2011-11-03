@@ -1,0 +1,13 @@
+require ${PN}.inc
+SRC_URI += " file://disable-xmms-plugin.patch \
+            file://flac-gcc43-fixes.patch \
+            file://14_metadata_iterators_memleak.patch \
+            file://15_format-not-a-string-literal-and-no-format-arguments.patch \
+"
+
+# FIXME/TODO Remove when toolchain packaging is fixed
+do_stage[postfuncs] += "do_stage_cppfixup"
+do_stage_cppfixup () {
+        ln -s ../../lib ${TARGET_SYSROOT}/${libdir}/.libs
+}
+
