@@ -1,0 +1,43 @@
+addhook configure_use_flags to post_recipe_parse first before set_useflags
+def configure_use_flags(d):
+    for flag in (d.get("CONFIGURE_USE_FLAGS") or "").split():
+        flag = dict(item.split("=") for item in flag.split(":"))
+        if not flag.has_key('use'):
+            continue
+
+        use = flag['use']
+
+        if 'conf' in flag:
+            conf = flag['conf']
+        else:
+            conf = use
+
+        if 'val' in flag:
+            val = flag['val']
+        else:
+            val = "0"
+
+        d.append("RECIPE_FLAGS", use, " ")
+        d.set("DEFAULT_USE_" + use, val)
+
+        d.set("%s_EXTRA_OECONF"%(use.upper()),
+              " --disable-" + conf)
+        d.set_override("%s_EXTRA_OECONF"%(use.upper()),
+                       ("","USE_" + use),
+                       " --enable-" + conf)
+        d.append("EXTRA_OECONF","${%s_EXTRA_OECONF}"%(use.upper()))
+
+
+        if 'depend' in flag:
+            d.set_override("DEPENDS",
+                           (">","USE_" + use),
+                           " " + flag['depend'].replace(',',' '))
+
+        if 'autolib' in flag:
+            d.set_override("AUTO_PACKAGE_LIBS", (">","USE_" + use),
+                           " " + flag['autolib'].replace(',',' '))
+
+        if 'autordepend' in flag and 'autolib' in flag:
+            d.set_override("RDEPENDS_${PN}-${AUTO_PACKAGE_LIBS_PKGPREFIX}" + use,
+                           ("","USE_" + use),
+                           " " + flag['autordepend'].replace(',',' '))
