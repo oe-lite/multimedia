@@ -62,6 +62,12 @@ ${libexecdir}/${PN}-${LIBV}/gst-* ${libdir}/lib*${SOLIBS} ${libdir}/${PN}-${LIBV
 
 PROVIDES_${PN} = "lib${PN}"
 RDEPENDS_${PN} += "${COMMON_DEP}"
+RDEPENDS_${PN}-dev += "glib-dev \
+                       glib-libglib-dev \
+                       glib-libgobject-dev \
+                       glib-libgthread-dev \
+                       glib-libgmodule-dev \
+                       libxml2-dev"
 DEPENDS_${PN} += "${COMMON_DEP} ${PN}-dev_${PV}"
 DEPENDS_${PN}-dev = ""
 
