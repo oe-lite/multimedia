@@ -5,7 +5,7 @@ HOMEPAGE = "http://xiph.org/"
 BUGTRACKER = "https://trac.xiph.org/newticket"
 LICENSE = "BSD"
 
-inherit autotools pkgconfig
+inherit autotools-autoreconf pkgconfig library
 
 SRC_URI = "http://downloads.xiph.org/releases/ogg/libogg-${PV}.tar.gz"
 
