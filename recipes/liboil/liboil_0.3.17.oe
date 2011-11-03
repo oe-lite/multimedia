@@ -17,6 +17,9 @@ FILES_${PN}-doc += "${datadir}/gtk-doc/"
 SRC_URI = " \
 	http://liboil.freedesktop.org/download/${P}.tar.gz \
 	file://fix-unaligned-whitelist.patch \
+	file://01_arm-vfp.patch;striplevel=0  \
+	file://02_amd64-cpuid.patch  \
+	file://03_stride-segfaults.patch \
 "
 
 inherit autotools-autoreconf pkgconfig library

@@ -1,0 +1,31 @@
+--- m4/as-host-defines.m4.old	2008-03-14 10:31:07.000000000 +0100
++++ m4/as-host-defines.m4	2008-03-14 10:32:25.000000000 +0100
+@@ -24,8 +24,10 @@
+       AC_DEFINE(HAVE_POWERPC, 1, [Defined if host is powerpc])
+       ;;
+     xarm)
+-      HAVE_ARM=yes
+-      AC_DEFINE(HAVE_ARM, 1, [Defined if host is arm])
++      if test "x${host_os}" = "xlinux-gnueabi"; then
++        HAVE_ARM=yes
++        AC_DEFINE(HAVE_ARM, 1, [Defined if host is arm])
++      fi
+       ;;
+   esac
+ 
+--- configure.old	2010-03-24 17:40:21.601816770 +0100
++++ configure	2010-03-24 17:41:15.300816103 +0100
+@@ -11651,10 +11651,11 @@
+ 
+       ;;
+     xarm)
+-      HAVE_ARM=yes
++      if test "x${host_os}" = "xlinux-gnueabi"; then
++        HAVE_ARM=yes
+ 
+ $as_echo "#define HAVE_ARM 1" >>confdefs.h
+-
++      fi
+       ;;
+   esac
+ 
