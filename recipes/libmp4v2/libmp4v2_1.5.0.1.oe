@@ -1,9 +1,13 @@
 DESCRIPTION = "This library provides functions to read, create, and modify mp4 files"
 LICENSE = "MPL LGPL2"
-inherit c++ autotools-autoreconf
+inherit c++ autotools-autoreconf library
 
 DEPENDS += "\
     libm libdl libgcc libc libstdc++ \
 "
+PACKAGES += "${PN}-mp4v2"
+FILES_${PN}-mp4v2 = "${bindir}"
+PROVIDES_${PN}-mp4v2 = "mp4v2"
+RDEPENDS_${PN}-mp4v2 = "${PN}"
 
 SRC_URI = "http://resare.com/libmp4v2/dist/${PN}-${PV}.tar.bz2"
