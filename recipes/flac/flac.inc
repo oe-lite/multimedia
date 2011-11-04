@@ -13,17 +13,26 @@ DEPENDS = "libm libgcc \
            libstdc++"
 
 AUTO_PACKAGE_LIBS = "FLAC FLAC++"
-AUTO_PACKAGE_LIBS_RDEPENDS:USE_ogg = "libogg"
-AUTO_PACKAGE_LIBS_DEV_DEPENDS = "${PN}-dev"
+AUTO_PACKAGE_LIBS_RDEPENDS:USE_ogg = " libogg"
+AUTO_PACKAGE_LIBS_DEV_DEPENDS:USE_ogg = " libogg"
 
 RDEPENDS_${PN}-libflac = "libm libgcc"
 RDEPENDS_${PN}-libflac++ = "libflac libstdc++"
+FILES_${PN}-libflac-dev += "${includedir}/FLAC \
+    ${libdir}/pkgconfig/flac.pc \
+    ${datadir}/aclocal/libFLAC.m4"
+FILES_${PN}-libflac++-dev += "${includedir}/FLAC++ \
+    ${libdir}/pkgconfig/flac++.pc \
+    ${datadir}/aclocal/libFLAC++.m4"
+FILES_${PN} = "${bindir}"
+FILES_${PN}-dev = ""
 
 PROVIDES_${PN} = "metaflac"
 FILES_${PN} = "${bindir}/*"
 RDEPENDS_${PN} = "${PN}-libflaclibm"
 RDEPENDS_${PN}:>USE_ogg = " libogg"
-           
+DEPENDS_${PN}:>USE_ogg = " libogg"
+
 inherit autotools-autoreconf
 
 EXTRA_OECONF += "--disable-oggtest \
