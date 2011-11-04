@@ -4,13 +4,14 @@ LICENSE = "LGPL"
  
 SRC_URI = "http://developer.kde.org/~wheeler/files/src/taglib-${PV}.tar.gz \
 	  "
-inherit autotools binconfig pkgconfig c++
+inherit autotools binconfig pkgconfig c++ library
 
 DEPENDS = "libstdc++"
 
-EXTRA_OECMAKE = "-DWITH_MP4=1"
+PROVIDES_${PN} = "libtag"
+RDEPENDS_${PN} += "libstdc++ libm libc libgcc"
 
 PACKAGES =+ "${PN}-c"
-
-FILES_${PN} = "${libdir}/libtag.so.*"
 FILES_${PN}-c = "${libdir}/libtag_c.so.*"
+PROVIDES_${PN}-c = "libtag-c"
+RDEPENDS_${PN}-c = "${PN}"
