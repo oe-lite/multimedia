@@ -11,10 +11,6 @@ libz \
 EXTRA_OECONF += "\
 --disable-examples \
 --disable-experimental \
---disable-sdl \
---disable-cdaudio \
---disable-vdpau \
---disable-apexsink \
 "
 
 FILES_${PN} += "${libdir}/gstreamer-${LIBV}/*.so"

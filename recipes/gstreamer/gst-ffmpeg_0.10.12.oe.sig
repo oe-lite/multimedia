@@ -1,1 +1,0 @@
-4b99f87f631793a9568233eebf94103d5e5235f6  gst-ffmpeg-0.10.12.tar.bz2
