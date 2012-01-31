@@ -2,8 +2,7 @@ DESCRIPTION = "Speex is an Open Source/Free Software patent-free audio compressi
 HOMEPAGE = "http://www.speex.org"
 SECTION = "libs"
 LICENSE = "BSD"
-DEPENDS = "libogg-dev \
-           ${TARGET_ARCH}/sysroot-libm"
+DEPENDS = "libm libogg" # FIXME: Verify that this actually works, incluyding that libogg is properly packaged
 
 SRC_URI = "http://downloads.us.xiph.org/releases/speex/speex-1.2rc1.tar.gz"
 
