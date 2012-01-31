@@ -11,9 +11,9 @@ SRC_URI = "http://downloads.us.xiph.org/releases/speex/speex-1.2rc1.tar.gz"
 
 inherit autotools pkgconfig
 
-EXTRA_OECONF = " --enable-fixed-point --with-ogg-libraries=${STAGE_DIR}/sysroot/usr/lib \
+EXTRA_OECONF = " --enable-fixed-point --with-ogg-libraries=${STAGE_DIR}/${HOST_TYPE}${libdir} \
                  --disable-float-api --disable-vbr \
-                 --with-ogg-includes=${STAGE_DIR}/sysroot/usr/include --disable-oggtest"
+                 --with-ogg-includes=${STAGE_DIR}/${HOST_TYPE}${includedir} --disable-oggtest"
 
 PACKAGES += "${PN}-bin"
 
