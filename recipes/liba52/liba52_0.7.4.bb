@@ -1,7 +1,7 @@
 DESCRIPTION = "Library for reading some sort of media format."
 HOMEPAGE = "http://liba52.sourceforge.net/"
 LICENSE = "GPLv2+"
-DEPENDS = "${TARGET_ARCH}/sysroot-libm"
+DEPENDS = "libm"
 PRIORITY = "optional"
 
 inherit autotools
