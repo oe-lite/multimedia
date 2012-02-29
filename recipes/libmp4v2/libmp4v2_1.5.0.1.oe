@@ -11,3 +11,5 @@ PROVIDES_${PN}-mp4v2 = "mp4v2"
 RDEPENDS_${PN}-mp4v2 = "${PN}"
 
 SRC_URI = "http://resare.com/libmp4v2/dist/${PN}-${PV}.tar.bz2"
+MIRRORS =+ """http://resare.com/libmp4v2/dist/ http://distfiles.macports.org/libmp4v2/
+"""
