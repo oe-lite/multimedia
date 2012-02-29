@@ -2,10 +2,11 @@ DESCRIPTION = "Library for reading some sort of media format."
 HOMEPAGE = "http://liba52.sourceforge.net/"
 LICENSE = "GPLv2+"
 
-inherit autotools library
+inherit autotools-autoreconf library
 
 SRC_URI = "http://liba52.sourceforge.net/files/a52dec-${PV}.tar.gz"
 S = "${SRCDIR}/a52dec-${PV}"
+SRC_URI += "file://buildcleanup.patch"
 
 DEPENDS = "libm"
 
