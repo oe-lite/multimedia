@@ -1,4 +1,3 @@
-LICENSE = "LGPL"
 HOMEPAGE = "http://www.gstreamer.net/"
 DESCRIPTION = "GStreamer Good Plug-ins is a set of plug-ins that we consider to have good quality code and correct functionality."
 
