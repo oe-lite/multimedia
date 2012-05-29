@@ -1,6 +1,5 @@
 DESCRIPTION = "orc - The Oil Runtime Compiler"
 HOMEPAGE = "http://code.entropywave.com/projects/orc/"
-LICENSE = "orc"
 
 SRC_URI = "http://code.entropywave.com/download/${PN}/${PN}-${PV}.tar.gz;name=${PN}"
 
