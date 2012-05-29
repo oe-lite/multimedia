@@ -4,7 +4,6 @@ It supports a wide range of formats including mp3, ogg, avi, mpeg and quicktime.
 HOMEPAGE = "http://gstreamer.freedesktop.org/"
 BUGTRACKER = "https://bugzilla.gnome.org/enter_bug.cgi?product=Gstreamer"
 PRIORITY = "optional"
-LICENSE = "LGPLv2+"
 
 inherit autotools-autoreconf pkgconfig c auto-package-utils
 
