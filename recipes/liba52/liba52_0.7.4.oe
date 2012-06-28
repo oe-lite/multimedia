@@ -1,6 +1,6 @@
 DESCRIPTION = "Library for reading some sort of media format."
 HOMEPAGE = "http://liba52.sourceforge.net/"
-LICENSE = "GPLv2+"
+LICENSE = "GPL-2.0+"
 
 inherit autotools-autoreconf library
 
