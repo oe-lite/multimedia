@@ -1,6 +1,6 @@
 DESCRIPTION = "FFmpeg-based GStreamer plug-in"
 SECTION = "multimedia"
-LICENSE = "LGPLv2.1+ | GPLv2+"
+LICENSE = "LGPL-2.1+ | GPL-2.0+"
 HOMEPAGE = "http://www.gstreamer.net/"
 
 DEPENDS += "libgstbase libz"
