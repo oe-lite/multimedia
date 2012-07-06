@@ -3,7 +3,7 @@ HOMEPAGE = "http://www.speex.org"
 SECTION = "libs"
 LICENSE = "BSD"
 
-inherit autotools pkgconfig library
+inherit autotools pkgconfig
 
 SRC_URI = "http://downloads.xiph.org/releases/speex/speex-${PV}.tar.gz"
 
