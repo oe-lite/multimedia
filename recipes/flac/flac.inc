@@ -44,3 +44,7 @@ EXTRA_OECONF += "--disable-oggtest \
                 --without-xmms-exec-prefix \
                 --without-libiconv-prefix \
 "
+
+EXTRA_OECONF += "${EXTRA_OECONF_ALTIVEC}"
+EXTRA_OECONF_ALTIVEC = "--disable-altivec"
+EXTRA_OECONF_ALTIVEC:HOST_OS_linux-gnualtivec = ""
