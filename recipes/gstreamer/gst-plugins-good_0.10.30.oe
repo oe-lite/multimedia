@@ -1,3 +1,0 @@
-LICENSE = "LGPL-2.1+"
-
-require ${PN}.inc
