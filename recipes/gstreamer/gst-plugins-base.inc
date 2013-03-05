@@ -11,6 +11,8 @@ CONFIGURE_USE_FLAGS += "use=video4linux:conf=gst_v4l:autolib=video4linux"
 CONFIGURE_USE_FLAGS += "use=gst_x11:conf=x:depend=libx11,libxv:autolib=ximagesink,xvimagesink"
 
 SRC_URI += "file://gstplaybin2-rawvideo-support.patch"
+SRC_URI += "file://configure.ac-fix-subparse-plugin.patch"
+
 FILES_${PN} = "\
 ${base_libdir}/*${SOLIBS} \
 ${libdir}/lib*${SOLIBS} \
