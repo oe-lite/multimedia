@@ -10,7 +10,7 @@ SRC_URI = "ftp://ftp.alsa-project.org/pub/utils/alsa-utils-${PV}.tar.bz2 \
 
 EXTRA_OECONF = "--disable-xmlto --disable-nls --disable-alsamixer --without-curses"
 
-inherit autotools-autoreconf gettext
+inherit autotools gettext
 
 PACKAGES += "\
              ${PN}-midi \
