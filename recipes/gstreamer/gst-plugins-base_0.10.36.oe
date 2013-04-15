@@ -1,0 +1,7 @@
+LICENSE = "LGPL-2.0+"
+
+require ${PN}.inc
+
+AUTO_PACKAGE_LIBS += "gio"
+
+FILES_${PN} += "${datadir}/${PN}"
