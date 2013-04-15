@@ -15,5 +15,8 @@ inherit auto-package-libs
 AUTO_PACKAGE_LIBS = "theoradec theoraenc"
 
 DEPENDS_${PN} = "libc libgcc libogg"
+RDEPENDS_${PN} = "libc libgcc libogg"
 DEPENDS_${PN}-libtheoradec = "libc"
+RDEPENDS_${PN}-libtheoradec = "libc"
 DEPENDS_${PN}-libtheoraenc = "libc libgcc libogg"
+RDEPENDS_${PN}-libtheoraenc = "libc libgcc libogg"
