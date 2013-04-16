@@ -3,8 +3,6 @@ DESCRIPTION = "GStreamer Good Plug-ins is a set of plug-ins that we consider to 
 
 inherit gst-plugins autotools-autoreconf pkgconfig make
 
-SRC_URI += "file://0001-v4l2-fix-build-with-recent-kernels-the-v4l2_buffer-i.patch"
-
 CONFIGURE_USE_FLAGS = "use=flac:depend=libflac:autolib=flac:autordepend=libflac"
 CONFIGURE_USE_FLAGS += "use=speex:depend=libspeex:autolib=speex:autordepend=libspeex"
 CONFIGURE_USE_FLAGS += "use=shout2:depend=libshout2:autolib=shout2:autordepend=libshout2"
