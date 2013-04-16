@@ -1,0 +1,18 @@
+LICENSE = "LGPL-2.0+"
+
+require ${PN}.inc
+
+DEPENDS += "glib-libgio"
+RDEPENDS_${PN} += " glib-libgio"
+RDEPENDS_${PN}-dev += " glib-libgio-dev"
+
+COMPATIBLE_IF_FLAGS += "gstreamer_api_1_0"
+
+SRC_URI = "http://gstreamer.freedesktop.org/src/${PN}/${PN}-${PV}.tar.xz"
+SRC_URI += "file://check_fix.patch"
+
+AUTO_PACKAGE_UTILS = " \
+gst-inspect-${LIBV} \
+gst-launch-${LIBV} \
+gst-typefind-${LIBV} \
+"
