@@ -1,0 +1,9 @@
+require ${PN}.inc
+
+COMPATIBLE_IF_FLAGS += "gstreamer_api_1_0"
+
+DEPENDS += "glib-libgio"
+
+AUTO_PACKAGE_LIBS += "xingmux"
+
+SRC_URI = "http://gstreamer.freedesktop.org/src/${PN}/${PN}-${PV}.tar.xz"
