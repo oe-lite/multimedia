@@ -2,6 +2,8 @@ LICENSE = "LGPL-2.0+"
 
 require ${PN}.inc
 
+COMPATIBLE_IF_FLAGS += "gstreamer_api_0_10"
+
 RECIPE_FLAGS = "mad"
 DEPENDS:>USE_mad = " libmad glib-libgio"
 RDEPENDS_${PN}:>USE_mad = " libmad glib-libgio"

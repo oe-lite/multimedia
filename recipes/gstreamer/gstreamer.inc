@@ -5,7 +5,7 @@ HOMEPAGE = "http://gstreamer.freedesktop.org/"
 BUGTRACKER = "https://bugzilla.gnome.org/enter_bug.cgi?product=Gstreamer"
 PRIORITY = "optional"
 
-inherit autotools-autoreconf pkgconfig c auto-package-utils
+inherit autotools-autoreconf pkgconfig c auto-package-utils gstreamer-api
 
 SRC_URI = "http://gstreamer.freedesktop.org/src/${PN}/${PN}-${PV}.tar.bz2"
 
@@ -40,8 +40,6 @@ native:glib-utils \
 native:orc \
 gettext \
 "
-
-LIBV = "0.10"
 
 AUTO_PACKAGE_UTILS = " \
 gst-feedback gst-feedback-${LIBV} \
