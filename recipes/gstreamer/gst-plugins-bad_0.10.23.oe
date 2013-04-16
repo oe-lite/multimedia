@@ -8,3 +8,5 @@ inter \
 removesilence \
 smooth \
 "
+
+COMPATIBLE_IF_FLAGS += "gstreamer_api_0_10"
