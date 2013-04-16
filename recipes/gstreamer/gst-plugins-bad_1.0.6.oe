@@ -1,0 +1,56 @@
+require ${PN}.inc
+
+COMPATIBLE_IF_FLAGS += "gstreamer_api_1_0"
+
+DEPENDS += "glib-libgio"
+
+SRC_URI = "http://gstreamer.freedesktop.org/src/${PN}/${PN}-${PV}.tar.xz"
+
+AUTO_PACKAGE_LIBS = "\
+adpcmdec \
+adpcmenc \
+asfmux \
+audiovisualizers \
+autoconvert \
+bayer \
+camerabin2 \
+coloreffects \
+dataurisrc \
+debugutilsbad \
+dtmf \
+dvb \
+dvbsuboverlay \
+dvdspu \
+festival \
+fieldanalysis \
+fragmented \
+frei0r \
+gaudieffects \
+gdp \
+geometrictransform \
+id3tag \
+interlace \
+inter \
+jpegformat \
+liveadder \
+mpegpsdemux \
+mpegpsmux \
+mpegtsdemux \
+mpegtsmux \
+pcapparse \
+pnm \
+rawparse \
+removesilence \
+rtpmux \
+rtpvp8 \
+scaletempoplugin \
+sdpelem \
+segmentclip \
+shm \
+siren \
+smooth \
+speed \
+subenc \
+videoparsersbad \
+y4mdec \
+"
