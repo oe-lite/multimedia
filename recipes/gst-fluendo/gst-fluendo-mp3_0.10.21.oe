@@ -1,0 +1,9 @@
+LICENSE = "MIT"
+HOMEPAGE = "http://www.fluendo.com/shop/product/fluendo-mp3-decoder/"
+DESCRIPTION = "Fluendo mp3 decoder GStreamer plugin"
+require gst-fluendo-flags.inc
+
+DEPENDS += "libgstbase"
+
+RDEPENDS_${PN}-libflump3dec = "${COMMON_DEPENDS}"
+AUTO_PACKAGE_LIBS="flump3dec"
