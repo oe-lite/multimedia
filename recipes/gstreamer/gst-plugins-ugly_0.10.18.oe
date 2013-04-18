@@ -1,2 +1,9 @@
 require ${PN}.inc
 
+COMPATIBLE_IF_FLAGS += "gstreamer_api_0_10"
+
+AUTO_PACKAGE_LIBS += "\
+iec958 \
+mpegaudioparse \
+mpegstream \
+"
