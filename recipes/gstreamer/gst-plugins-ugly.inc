@@ -28,10 +28,7 @@ AUTO_PACKAGE_LIBS = "\
 asf \
 dvdlpcmdec \
 dvdsub \
-iec958 \
 mad \
-mpegaudioparse \
-mpegstream \
 rmdemux \
 "
 
