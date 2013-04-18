@@ -1,0 +1,10 @@
+require ${PN}.inc
+
+AUTO_PACKAGE_LIBS += "\
+audiovisualizers \
+faceoverlay \
+freeverb \
+inter \
+removesilence \
+smooth \
+"
