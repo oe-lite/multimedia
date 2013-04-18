@@ -6,6 +6,8 @@ inherit gst-plugins autotools-autoreconf pkgconfig
 DEPENDS += "\
 libgstbase \
 libz \
+libmad \
+libid3tag \
 "
 
 EXTRA_OECONF += "\
@@ -20,12 +22,14 @@ RDEPENDS_${PN} += " \
 libgstbase \
 libz \
 "
+
 inherit auto-package-libs
 AUTO_PACKAGE_LIBS = "\
 asf \
 dvdlpcmdec \
 dvdsub \
 iec958 \
+mad \
 mpegaudioparse \
 mpegstream \
 rmdemux \
@@ -33,3 +37,5 @@ rmdemux \
 
 PACKAGES += "${PN}-all"
 RDEPENDS_${PN}-all = "${LIBS_AUTO_RPACKAGES}"
+
+RDEPENDS_${PN}-libmad += "libmad"
