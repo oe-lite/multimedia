@@ -1,0 +1,16 @@
+CLASS_FLAGS += "gstreamer_api"
+
+DEFAULT_USE_gstreamer_api = "0.10"
+
+addhook parse_gstreamer_api_version to post_recipe_parse first after set_useflags before auto_package_utils auto_package_libs
+def parse_gstreamer_api_version(d):
+    api_version = d.get("USE_gstreamer_api")
+    if not api_version or api_version == "0.10":
+        d.set("USE_gstreamer_api_0_10","1")
+    elif api_version == "1.0":
+        d.set("USE_gstreamer_api_1_0","1")
+    else :
+        print "ERROR! Wrong gstreamer api version set using USE_gstreamer_api: %s. Only 0.10 and 1.0 are valid options."%(api_version)
+        return False
+
+LIBV = "${USE_gstreamer_api}"
