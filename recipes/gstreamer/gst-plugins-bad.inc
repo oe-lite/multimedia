@@ -37,6 +37,7 @@ asfmux \
 autoconvert \
 bayer \
 camerabin \
+camerabin2 \
 cdxaparse \
 coloreffects \
 colorspace \
