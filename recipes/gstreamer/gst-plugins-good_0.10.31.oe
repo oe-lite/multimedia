@@ -5,3 +5,5 @@ require ${PN}.inc
 CONFIGURE_USE_FLAGS += "use=gst_x11:conf=x:depend=libx11:autolib=ximagesrc"
 
 DEPENDS += "glib-libgio"
+
+DEFAULT_PREFERENCE = "-1"
