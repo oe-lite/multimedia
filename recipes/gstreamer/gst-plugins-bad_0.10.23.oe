@@ -8,3 +8,5 @@ inter \
 removesilence \
 smooth \
 "
+
+DEFAULT_PREFERENCE = "-1"
