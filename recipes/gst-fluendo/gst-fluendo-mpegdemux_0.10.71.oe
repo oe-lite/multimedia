@@ -5,3 +5,5 @@ DESCRIPTION = "Fluendo mpeg demuxer GStreamer plugin"
 require gst-fluendo-flags.inc
 RDEPENDS_${PN}-libflumpegdemux = "${COMMON_DEPENDS}"
 AUTO_PACKAGE_LIBS="flumpegdemux"
+
+DEFAULT_PREFERENCE = "-1"
