@@ -5,3 +5,5 @@ SECTION = "console/utils"
 LICENSE = "GPL-2.0+"
 
 require alsa-utils.inc
+
+DEFAULT_PREFERENCE = "-1"
