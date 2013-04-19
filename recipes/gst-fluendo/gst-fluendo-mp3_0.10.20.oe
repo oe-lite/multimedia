@@ -5,3 +5,5 @@ DESCRIPTION = "Fluendo mp3 decoder GStreamer plugin"
 require gst-fluendo-flags.inc
 RDEPENDS_${PN}-libflump3dec = "${COMMON_DEPENDS} gst-plugin-flumpegdemux"
 AUTO_PACKAGE_LIBS="flump3dec"
+
+DEFAULT_PREFERENCE = "-1"
