@@ -1,8 +1,6 @@
 LICENSE = "LGPL-2.0+"
 
 require ${PN}.inc
-SRC_URI += "file://check_fix.patch"
-SRC_URI += "file://gst-inspect-check-error.patch"
 
 RECIPE_FLAGS = "mad"
 DEPENDS:>USE_mad = " libmad glib-libgio"
@@ -10,3 +8,7 @@ RDEPENDS_${PN}:>USE_mad = " libmad glib-libgio"
 RDEPENDS_${PN}-dev:>USE_mad = " libmad-dev glib-libgio-dev"
 
 DEFAULT_PREFERENCE = "-1"
+
+SRC_URI += "file://check_fix.patch"
+SRC_URI += "file://gst-inspect-check-error.patch"
+SRC_URI += "file://printf_fix.patch"

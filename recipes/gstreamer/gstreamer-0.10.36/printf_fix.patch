@@ -1,0 +1,73 @@
+From 9619b7eec4359d744210049a61c5461f4fda5784 Mon Sep 17 00:00:00 2001
+From: Olivier Blin <olivier.blin@softathome.com>
+Date: Thu, 27 Sep 2012 16:59:04 +0200
+Subject: [PATCH] info: do not register printf extension for %p (#684970)
+
+This happened when glib was not using system printf, and caused the
+internal gstreamer printf extensions to be used for all %p printfs.
+---
+ gst/gstinfo.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/gst/gstinfo.c b/gst/gstinfo.c
+index 0686423..fd5f8ff 100644
+--- a/gst/gstinfo.c
++++ b/gst/gstinfo.c
+@@ -218,7 +218,7 @@ dladdr (void *address, Dl_info * dl)
+ static void gst_debug_reset_threshold (gpointer category, gpointer unused);
+ static void gst_debug_reset_all_thresholds (void);
+ 
+-#ifdef HAVE_PRINTF_EXTENSION
++#ifdef GST_USING_PRINTF_EXTENSION
+ static int _gst_info_printf_extension_ptr (FILE * stream,
+     const struct printf_info *info, const void *const *args);
+ static int _gst_info_printf_extension_segment (FILE * stream,
+@@ -334,7 +334,7 @@ _gst_debug_init (void)
+   /* get time we started for debugging messages */
+   _priv_gst_info_start_time = gst_util_get_timestamp ();
+ 
+-#ifdef HAVE_PRINTF_EXTENSION
++#ifdef GST_USING_PRINTF_EXTENSION
+ #ifdef HAVE_REGISTER_PRINTF_SPECIFIER
+   register_printf_specifier (GST_PTR_FORMAT[0], _gst_info_printf_extension_ptr,
+       _gst_info_printf_extension_arginfo);
+@@ -724,7 +724,7 @@ gst_debug_print_object (gpointer ptr)
+   return g_strdup_printf ("%p", ptr);
+ }
+ 
+-#ifdef HAVE_PRINTF_EXTENSION
++#ifdef GST_USING_PRINTF_EXTENSION
+ 
+ static gchar *
+ gst_debug_print_segment (gpointer ptr)
+@@ -768,7 +768,7 @@ gst_debug_print_segment (gpointer ptr)
+   }
+ }
+ 
+-#endif /* HAVE_PRINTF_EXTENSION */
++#endif /* GST_USING_PRINTF_EXTENSION */
+ 
+ /**
+  * gst_debug_construct_term_color:
+@@ -1649,7 +1649,7 @@ _gst_debug_register_funcptr (GstDebugFuncPtr func, const gchar * ptrname)
+ 
+ /*** PRINTF EXTENSIONS ********************************************************/
+ 
+-#ifdef HAVE_PRINTF_EXTENSION
++#ifdef GST_USING_PRINTF_EXTENSION
+ static int
+ _gst_info_printf_extension_ptr (FILE * stream, const struct printf_info *info,
+     const void *const *args)
+@@ -1706,7 +1706,7 @@ _gst_info_printf_extension_arginfo (const struct printf_info *info, size_t n,
+   }
+   return 1;
+ }
+-#endif /* HAVE_PRINTF_EXTENSION */
++#endif /* GST_USING_PRINTF_EXTENSION */
+ 
+ static void
+ gst_info_dump_mem_line (gchar * linebuf, gsize linebuf_size,
+-- 
+1.7.12.1
+
+
