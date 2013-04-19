@@ -5,3 +5,5 @@ require ${PN}.inc
 AUTO_PACKAGE_LIBS += "gio"
 
 FILES_${PN} += "${datadir}/${PN}"
+
+DEFAULT_PREFERENCE = "-1"
