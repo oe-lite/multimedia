@@ -3,6 +3,9 @@ HOMEPAGE = "http://www.fluendo.com/shop/product/fluendo-mp3-decoder/"
 DESCRIPTION = "Fluendo mpeg demuxer GStreamer plugin"
 
 require gst-fluendo-flags.inc
+
+COMPATIBLE_IF_FLAGS += "gstreamer_api_0_10"
+
 RDEPENDS_${PN}-libflumpegdemux = "${COMMON_DEPENDS}"
 AUTO_PACKAGE_LIBS="flumpegdemux"
 
