@@ -1,3 +1,5 @@
 LICENSE = "LGPL-2.0+"
 
 require ${PN}.inc
+
+COMPATIBLE_IF_FLAGS += "gstreamer_api_0_10"
