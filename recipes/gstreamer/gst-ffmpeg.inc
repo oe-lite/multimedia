@@ -4,6 +4,9 @@ HOMEPAGE = "http://www.gstreamer.net/"
 
 DEPENDS += "libgstbase libz"
 
+EXTRA_OECONF_ALTIVEC = "--disable-altivec"
+EXTRA_OECONF_ALTIVEC:HOST_OS_linux-gnualtivec = ""
+
 inherit gst-plugins autotools-autoreconf pkgconfig auto-package-libs
 
 FILES_${PN} += "${libdir}/gstreamer-${LIBV}/*.so"
