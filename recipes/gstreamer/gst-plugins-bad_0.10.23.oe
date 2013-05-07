@@ -10,3 +10,5 @@ smooth \
 "
 
 DEFAULT_PREFERENCE = "-1"
+
+COMPATIBLE_IF_FLAGS += "gstreamer_api_0_10"
