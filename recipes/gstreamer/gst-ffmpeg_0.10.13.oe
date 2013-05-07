@@ -5,7 +5,7 @@ COMPATIBLE_IF_FLAGS += "gstreamer_api_0_10"
 
 SRC_URI += "file://lower-rank.diff"
 
-EXTRA_OECONF += "--with-ffmpeg-extra-configure=\"--target-os=linux\""
+EXTRA_OECONF += "--with-ffmpeg-extra-configure=\"--target-os=linux ${EXTRA_OECONF_ALTIVEC}\""
 
 # ffmpeg_lgpl = 0 will result in the GPL licensed postproc plugin to
 # be build. More info in README for gst-ffmpeg
