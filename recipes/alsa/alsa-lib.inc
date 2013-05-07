@@ -35,5 +35,18 @@ ${datadir}/alsa/pcm/default.conf \
 ${datadir}/alsa/pcm/dmix.conf \
 ${datadir}/alsa/pcm/dsnoop.conf"
 
-RDEPENDS_${PN}-libasound += "alsa-conf-base"
-DEPENDS_${PN}-libasound += "${PN}-alsa-dev ${PN}-dev"
+RDEPENDS_${PN}-libasound += "\
+alsa-conf-base \
+libpthread \
+libm \
+libdl \
+libc \
+"
+
+DEPENDS_${PN}-libasound += "\
+${PN}-alsa-dev ${PN}-dev \
+libpthread \
+libm \
+libdl \
+libc \
+"
