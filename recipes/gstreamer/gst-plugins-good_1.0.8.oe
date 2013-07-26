@@ -1,0 +1,57 @@
+LICENSE = "LGPL-2.1+"
+
+require ${PN}.inc
+COMPATIBLE_IF_FLAGS += "gstreamer_api_1_0"
+SRC_URI = "http://gstreamer.freedesktop.org/src/${PN}/${PN}-${PV}.tar.xz"
+
+DEPENDS += "glib-libgio"
+
+AUTO_PACKAGE_LIBS = "\
+alaw \
+alphacolor \
+alpha \
+apetag \
+audiofx \
+audioparsers \
+auparse \
+autodetect \
+avi \
+cutter \
+debug \
+deinterlace \
+effectv \
+equalizer \
+flv \
+flxdec \
+goom2k1 \
+goom \
+icydemux \
+id3demux \
+imagefreeze \
+interleave \
+isomp4 \
+level \
+matroska \
+mulaw \
+multifile \
+multipart \
+navigationtest \
+oss4audio \
+ossaudio \
+replaygain \
+rtpmanager \
+rtp \
+rtsp \
+shapewipe \
+smpte \
+spectrum \
+udp \
+video4linux2 \
+videobox \
+videocrop \
+videofilter \
+videomixer \
+wavenc \
+wavparse \
+y4menc \
+"
