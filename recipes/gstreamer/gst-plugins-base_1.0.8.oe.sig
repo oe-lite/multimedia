@@ -1,0 +1,1 @@
+a9426be73f1e6107b72c9935c335c37325677d14  gst-plugins-base-1.0.8.tar.xz
