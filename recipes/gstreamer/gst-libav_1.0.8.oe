@@ -1,0 +1,21 @@
+DESCRIPTION = "Libav-based GStreamer plug-in"
+require gst-ffmpeg.inc
+
+COMPATIBLE_IF_FLAGS += "gstreamer_api_1_0"
+
+SRC_URI = "http://gstreamer.freedesktop.org/src/${PN}/${PN}-${PV}.tar.xz"
+
+EXTRA_OECONF += "--with-libav-extra-configure=\"--target-os=linux --disable-asm ${EXTRA_OECONF_ALTIVEC}\""
+
+# ffmpeg_lgpl = 0 will result in the GPL licensed postproc plugin to
+# be build. More info in README for gst-ffmpeg
+RECIPE_FLAGS += "libav_lgpl"
+DEFAULT_USE_libav_lgpl = "1"
+EXTRA_OECONF:>USE_libav_lgpl = " --enable-lgpl"
+
+AUTO_PACKAGE_LIBS_RDEPENDS = "libgstbase libz"
+
+AUTO_PACKAGE_LIBS = "\
+avscale \
+libav \
+"
