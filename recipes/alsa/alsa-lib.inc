@@ -2,11 +2,26 @@ DEPENDS += "libdl \
 			libpthread \
 			libm"
 
-inherit autotools-autoreconf pkgconfig mdev
+inherit autotools-autoreconf pkgconfig mdev passwd
 
 SRC_URI = "ftp://ftp.alsa-project.org/pub/lib/alsa-lib-${PV}.tar.bz2 \
 file://mdev.conf \
+file://group \
+file://passwd \
 "
+
+RECIPE_FLAGS += "alsa_audio_users"
+DEFAULT_USE_alsa_audio_users = ""
+
+DO_PATCH_UPDATE_AUDIO_GROUP = ""
+DO_PATCH_UPDATE_AUDIO_GROUP:USE_alsa_audio_users = "do_patch_update_audio_group"
+
+do_patch[postfuncs] += "${DO_PATCH_UPDATE_AUDIO_GROUP}"
+do_patch_update_audio_group[expand] = "3"
+do_patch_update_audio_group() {
+	sed -i -e 's/^\(audio:x:102:\).*/\1${USE_alsa_audio_users}/'   \
+		${SRCDIR}/group
+}
 
 EXTRA_OECONF = "--with-cards=pdaudiocf --with-oss=yes --disable-python"
 
