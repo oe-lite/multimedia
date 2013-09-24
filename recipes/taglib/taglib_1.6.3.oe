@@ -1,6 +1,0 @@
-HOMEPAGE = "http://developer.kde.org/~wheeler/taglib.html"
-require taglib.inc
-
-inherit autotools binconfig
-
-SRC_URI = "http://developer.kde.org/~wheeler/files/src/taglib-${PV}.tar.gz"
