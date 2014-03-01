@@ -1,0 +1,38 @@
+From 58c9324e015352ad970fc6acf3a56ce30e214068 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Sebastian=20Dr=C3=B6ge?= <slomo@circular-chaos.org>
+Date: Fri, 24 May 2013 22:58:19 +0200
+Subject: [PATCH 170/172] basetransform: Fix handling of reverse caps
+ negotiation if this element alone is not enough to do the transform
+
+For example if downstream wants a new width/height and color format and
+there's first a videoscale and then a ffmpegcolorspace. ffmpegcolorspace
+could do the color format conversion, but not the width/height and the
+other way around.
+---
+ libs/gst/base/gstbasetransform.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/libs/gst/base/gstbasetransform.c b/libs/gst/base/gstbasetransform.c
+index e1fbaa9..25eb2b4 100644
+--- a/libs/gst/base/gstbasetransform.c
++++ b/libs/gst/base/gstbasetransform.c
+@@ -1974,7 +1974,7 @@ gst_base_transform_buffer_alloc (GstPad * pad, guint64 offset, guint size,
+           && !gst_caps_is_equal (sink_suggest, priv->sink_alloc);
+     }
+ 
+-    if (new_caps && (suggest || !gst_caps_can_intersect (sink_suggest, templ))) {
++    if (new_caps && !gst_caps_can_intersect (sink_suggest, templ)) {
+       GstCaps *allowed, *peercaps;
+ 
+       GST_DEBUG_OBJECT (trans,
+@@ -2023,6 +2023,7 @@ gst_base_transform_buffer_alloc (GstPad * pad, guint64 offset, guint size,
+         }
+ 
+         gst_caps_replace (&sink_suggest, allowed);
++        size_suggest = 0;
+         gst_caps_unref (allowed);
+ 
+         suggest = TRUE;
+-- 
+1.9.rc1
+
