@@ -1,0 +1,26 @@
+#modified for 1.0.5
+From cecba1668bc8607112a6a2b802c82b6313a0d2b4 Mon Sep 17 00:00:00 2001
+From: Adrian Alonso <aalonso@freescale.com>
+Date: Tue, 19 Jun 2012 15:37:56 -0500
+Subject: [PATCH] gstplaybin2: rawvideo support
+
+* Enable support for rawvideo
+* Support direct rendering for mfw_v4lsink plugin
+
+Signed-off-by: Adrian Alonso <aalonso@freescale.com>
+---
+ gst/playback/gstplaybin2.c |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+--- gst-plugins-base-1.0.5/gst/playback/gstplaybin2.c.old	2013-03-14 10:44:24.588541809 +0000
++++ gst-plugins-base-1.0.5/gst/playback/gstplaybin2.c	2013-03-14 10:45:12.025519505 +0000
+@@ -471,7 +471,7 @@
+ #define DEFAULT_SOURCE            NULL
+ #define DEFAULT_FLAGS             GST_PLAY_FLAG_AUDIO | GST_PLAY_FLAG_VIDEO | GST_PLAY_FLAG_TEXT | \
+                                   GST_PLAY_FLAG_SOFT_VOLUME | GST_PLAY_FLAG_DEINTERLACE | \
+-                                  GST_PLAY_FLAG_SOFT_COLORBALANCE
++                                  GST_PLAY_FLAG_SOFT_COLORBALANCE | GST_PLAY_FLAG_NATIVE_VIDEO
+ #define DEFAULT_N_VIDEO           0
+ #define DEFAULT_CURRENT_VIDEO     -1
+ #define DEFAULT_N_AUDIO           0
