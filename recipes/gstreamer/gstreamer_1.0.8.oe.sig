@@ -1,1 +1,0 @@
-25daac109c4989f460c4d62475e63af941400a9a  gstreamer-1.0.8.tar.xz
