@@ -3,7 +3,6 @@ require taglib.inc
 
 EXTRA_OE_CMAKE_CONF = " \
 	-DCMAKE_BUILD_TYPE=Release \
-	. \
 "
 inherit cmake
 
