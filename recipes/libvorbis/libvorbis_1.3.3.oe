@@ -18,3 +18,5 @@ inherit autotools-autoreconf pkgconfig library
 EXTRA_OECONF = "--with-ogg-libraries=${TARGET_SYSROOT}/${libdir} \
                 --with-ogg-includes=${TARGET_SYSROOT}/${includedir} \
 "
+
+DEFAULT_PREFERENCE = "-1"
