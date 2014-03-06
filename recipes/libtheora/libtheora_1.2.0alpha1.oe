@@ -20,3 +20,5 @@ DEPENDS_${PN}-libtheoradec = "libc"
 RDEPENDS_${PN}-libtheoradec = "libc"
 DEPENDS_${PN}-libtheoraenc = "libc libgcc libogg"
 RDEPENDS_${PN}-libtheoraenc = "libc libgcc libogg"
+
+DEFAULT_PREFERENCE = "-1"
