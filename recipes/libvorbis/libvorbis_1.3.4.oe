@@ -20,3 +20,5 @@ EXTRA_OECONF = "--with-ogg-libraries=${TARGET_SYSROOT}/${libdir} \
 "
 
 AUTO_PACKAGE_LIBS = "vorbisenc vorbisfile"
+
+DEFAULT_PREFERENCE = "-1"
