@@ -8,3 +8,5 @@ COMPATIBLE_IF_FLAGS += "gstreamer_api_0_10"
 
 RDEPENDS_${PN}-libflumpegdemux = "${COMMON_DEPENDS}"
 AUTO_PACKAGE_LIBS="flumpegdemux"
+
+DEFAULT_PREFERENCE = "-1"
