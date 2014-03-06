@@ -1,0 +1,22 @@
+DESCRIPTION = "The libtheora reference implementation provides the standard encoder and decoder under a BSD license."
+HOMEPAGE = "http://xiph.org/"
+BUGTRACKER = "https://trac.xiph.org/newticket"
+LICENSE = "BSD"
+
+inherit autotools pkgconfig
+
+SRC_URI = "http://downloads.xiph.org/releases/theora/libtheora-${PV}.tar.gz"
+
+DEPENDS = "libogg"
+
+EXTRA_OECONF = "--disable-examples"
+
+inherit auto-package-libs
+AUTO_PACKAGE_LIBS = "theoradec theoraenc"
+
+DEPENDS_${PN} = "libc libgcc libogg"
+RDEPENDS_${PN} = "libc libgcc libogg"
+DEPENDS_${PN}-libtheoradec = "libc"
+RDEPENDS_${PN}-libtheoradec = "libc"
+DEPENDS_${PN}-libtheoraenc = "libc libgcc libogg"
+RDEPENDS_${PN}-libtheoraenc = "libc libgcc libogg"
