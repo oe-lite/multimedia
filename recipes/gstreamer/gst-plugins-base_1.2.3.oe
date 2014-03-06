@@ -35,3 +35,5 @@ gst-play-${LIBV} \
 "
 
 FILES_${PN} += "${datadir}/${PN}"
+
+DEFAULT_PREFERENCE = "-1"
