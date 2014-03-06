@@ -1,4 +1,0 @@
-LICENSE = "BSD-2-Clause*"
-
-require orc.inc
-LIBV = "0.4"
