@@ -7,3 +7,5 @@ DEPENDS += "libgstbase"
 
 RDEPENDS_${PN}-libflump3dec = "${COMMON_DEPENDS}"
 AUTO_PACKAGE_LIBS="flump3dec"
+
+DEFAULT_PREFERENCE = "-1"
