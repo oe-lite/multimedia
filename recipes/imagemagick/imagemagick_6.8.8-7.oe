@@ -28,3 +28,5 @@ FILES_${PN} += "${libdir}/ImageMagick-${IMVER}/modules-Q16/*/*.so \
 FILES_${PN}-dev += "${libdir}/ImageMagick-${IMVER}/modules-Q16/*/*.a"
 
 FILES_${PN}-dbg += "${libdir}/ImageMagick-${IMVER}/modules-Q16/*/.debug/*"
+
+DEFAULT_PREFERENCE = "-1"
