@@ -1,1 +1,0 @@
-a886320430e69252548cae79bb2d8e5966b6c5fd  ImageMagick-6.8.6-7.tar.bz2
