@@ -12,3 +12,5 @@ SRC_URI = "http://taglib.github.io/releases/${PN}-${PV}.tar.gz"
 
 DEPENDS_${PN}-libtag += "libz"
 RDEPENDS_${PN}-libtag += "libz"
+
+DEFAULT_PREFERENCE = "-1"
