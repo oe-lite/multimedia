@@ -19,3 +19,5 @@ AUTO_PACKAGE_LIBS = "\
 avscale \
 libav \
 "
+
+DEFAULT_PREFERENCE = "-1"
