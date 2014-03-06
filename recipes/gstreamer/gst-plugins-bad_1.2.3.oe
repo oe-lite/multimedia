@@ -23,3 +23,5 @@ scaletempoplugin sdpelem segmentclip shm siren smooth smoothstreaming speed sube
 videofiltersbad videoparsersbad \
 yadif y4mdec \
 "
+
+DEFAULT_PREFERENCE = "-1"
