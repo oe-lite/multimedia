@@ -7,3 +7,5 @@ DEPENDS += "glib-libgio"
 AUTO_PACKAGE_LIBS += "xingmux"
 
 SRC_URI = "http://gstreamer.freedesktop.org/src/${PN}/${PN}-${PV}.tar.xz"
+
+DEFAULT_PREFERENCE = "-1"
