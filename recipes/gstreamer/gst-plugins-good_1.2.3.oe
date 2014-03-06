@@ -56,3 +56,5 @@ wavenc \
 wavparse \
 y4menc \
 "
+
+DEFAULT_PREFERENCE = "-1"
