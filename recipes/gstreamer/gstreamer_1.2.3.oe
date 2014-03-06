@@ -15,3 +15,5 @@ gst-inspect-${LIBV} \
 gst-launch-${LIBV} \
 gst-typefind-${LIBV} \
 "
+
+DEFAULT_PREFERENCE = "-1"
