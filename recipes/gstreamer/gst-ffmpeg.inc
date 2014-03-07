@@ -1,4 +1,3 @@
-SECTION = "multimedia"
 LICENSE = "LGPL-2.1+ | GPL-2.0+"
 HOMEPAGE = "http://www.gstreamer.net/"
 
