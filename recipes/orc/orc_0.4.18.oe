@@ -1,4 +1,7 @@
 LICENSE = "BSD-2-Clause*"
 
 require orc.inc
+
+SRC_URI += "file://pc.patch"
+
 LIBV = "0.4"
