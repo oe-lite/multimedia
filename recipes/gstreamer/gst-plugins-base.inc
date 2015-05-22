@@ -1,7 +1,7 @@
 HOMEPAGE = "http://www.gstreamer.net/"
 DESCRIPTION = "GStreamer Base Plug-ins is a well-groomed and well-maintained collection of GStreamer plug-ins and elements"
 
-inherit gst-plugins autotools-autoreconf pkgconfig
+inherit gst-plugins autotools-autoreconf pkgconfig gettext
 
 CONFIGURE_USE_FLAGS = "use=vorbis:depend=libvorbis:autolib=vorbis:autordepend=libvorbis"
 CONFIGURE_USE_FLAGS += "use=alsa:depend=libasound:autolib=alsa:autordepend=libasound"
