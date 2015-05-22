@@ -4,7 +4,7 @@ BUGTRACKER = "http://sourceforge.net/tracker/?group_id=13478&atid=113478"
 LICENSE = "GFDL-1.2 & GPLv2.0+ & LGPLv2.1+ & BSD"
 
 
-inherit auto-package-libs configure-use c++
+inherit auto-package-libs configure-use c++ gettext
 require conf/fetch/sourceforge.conf
 SRC_URI = "${SOURCEFORGE_MIRROR}/flac/flac-${PV}.tar.gz"
 
