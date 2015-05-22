@@ -1,0 +1,10 @@
+diff -urN a/orc.pc.in b/orc.pc.in
+--- a/orc.pc.in	2013-02-20 02:39:37.000000000 +0100
++++ b/orc.pc.in	2015-05-14 13:53:18.744262513 +0200
+@@ -12,5 +12,5 @@
+ Libs.private: @LIBM@ @LIBRT@ @PTHREAD_LIBS@
+ Cflags: -I${includedir}
+ 
+-orcc=${toolsdir}/orcc@EXEEXT@
++orcc=${pc_sysrootdir}${toolsdir}/orcc@EXEEXT@
+ 

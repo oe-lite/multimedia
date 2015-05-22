@@ -1,7 +1,7 @@
 HOMEPAGE = "http://www.gstreamer.net/"
 DESCRIPTION = "GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par compared to the rest."
 
-inherit gst-plugins autotools-autoreconf pkgconfig
+inherit gst-plugins autotools-autoreconf pkgconfig gettext
 
 DEPENDS += "\
 libgstbase \

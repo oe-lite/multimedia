@@ -10,6 +10,7 @@ SRC_URI = "http://downloads.xiph.org/releases/theora/libtheora-${PV}.tar.gz"
 DEPENDS = "libogg"
 
 EXTRA_OECONF = "--disable-examples"
+PARALLEL_MAKE = ""
 
 inherit auto-package-libs
 AUTO_PACKAGE_LIBS = "theoradec theoraenc"

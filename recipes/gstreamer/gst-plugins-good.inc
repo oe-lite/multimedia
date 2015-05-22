@@ -1,7 +1,7 @@
 HOMEPAGE = "http://www.gstreamer.net/"
 DESCRIPTION = "GStreamer Good Plug-ins is a set of plug-ins that we consider to have good quality code and correct functionality."
 
-inherit gst-plugins autotools-autoreconf pkgconfig make
+inherit gst-plugins autotools-autoreconf pkgconfig make gettext
 
 CONFIGURE_USE_FLAGS = "use=flac:depend=libflac:autolib=flac:autordepend=libflac"
 CONFIGURE_USE_FLAGS += "use=speex:depend=libspeex:autolib=speex:autordepend=libspeex"
