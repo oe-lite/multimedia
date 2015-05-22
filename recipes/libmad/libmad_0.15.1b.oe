@@ -12,11 +12,12 @@ require conf/fetch/sourceforge.conf
 SRC_URI = "${SOURCEFORGE_MIRROR}/mad/libmad-${PV}.tar.gz \
            file://no-force-mem.patch \
            file://add-pkgconfig.patch \
+           file://mandatory-files.patch \
            file://fix_for_mips_with_gcc-4.5.0.patch"
 
 S = "${SRCDIR}/libmad-${PV}"
 
-inherit autotools pkgconfig library
+inherit autotools-autoreconf pkgconfig library
 
 EXTRA_OECONF = "-enable-speed --enable-shared"
 # The ASO's don't take any account of thumb...

@@ -1,0 +1,15 @@
+diff -urN a/AUTHORS b/AUTHORS
+--- a/AUTHORS	1970-01-01 01:00:00.000000000 +0100
++++ b/AUTHORS	2015-05-20 17:33:30.691791110 +0200
+@@ -0,0 +1 @@
++Dummy
+diff -urN a/ChangeLog b/ChangeLog
+--- a/ChangeLog	1970-01-01 01:00:00.000000000 +0100
++++ b/ChangeLog	2015-05-20 17:33:35.635862311 +0200
+@@ -0,0 +1 @@
++Dummy
+diff -urN a/NEWS b/NEWS
+--- a/NEWS	1970-01-01 01:00:00.000000000 +0100
++++ b/NEWS	2015-05-20 17:33:25.523716670 +0200
+@@ -0,0 +1 @@
++Dummy
