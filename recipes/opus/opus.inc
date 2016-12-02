@@ -24,3 +24,8 @@ EXTRA_OECONF:>USE_opus_fast_math = " --enable-float-approx"
 RECIPE_FLAGS += "opus_float_approx"
 DEFAULT_USE_opus_float_approx = False
 EXTRA_OECONF:>USE_opus_float_approx = " --enable-float-approx"
+
+# Add --enable-fixed-point to configure.
+RECIPE_FLAGS += "opus_fixed_point"
+DEFAULT_USE_opus_fixed_point = False
+EXTRA_OECONF:>USE_opus_fixed_point = " --enable-fixed-point"
