@@ -1,1 +1,0 @@
-55d3f886b9ab6d825f1254a356074fbe26744b7a  ImageMagick-6.8.8-7.tar.bz2
