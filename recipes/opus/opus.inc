@@ -12,3 +12,9 @@ inherit library
 DEPENDS += "libm"
 DEPENDS_${PN} += "libc libm"
 RDEPENDS_${PN} += "libc libm"
+
+# Add -ffast-math to CFLAGS, requires passing --enable-float-approx to configure.
+RECIPE_FLAGS += "opus_fast_math"
+DEFAULT_USE_opus_fast_math = False
+CFLAGS:>USE_opus_fast_math = " -ffast-math"
+EXTRA_OECONF:>USE_opus_fast_math = " --enable-float-approx"
