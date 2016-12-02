@@ -18,3 +18,9 @@ RECIPE_FLAGS += "opus_fast_math"
 DEFAULT_USE_opus_fast_math = False
 CFLAGS:>USE_opus_fast_math = " -ffast-math"
 EXTRA_OECONF:>USE_opus_fast_math = " --enable-float-approx"
+
+# Add --enable-float-approx to configure. This can be done independently
+# from -ffast-math.
+RECIPE_FLAGS += "opus_float_approx"
+DEFAULT_USE_opus_float_approx = False
+EXTRA_OECONF:>USE_opus_float_approx = " --enable-float-approx"
