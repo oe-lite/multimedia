@@ -5,7 +5,7 @@ LICENSE = "BSD"
 
 inherit autotools pkgconfig
 
-SRC_URI = "http://downloads.xiph.org/releases/theora/libtheora-${PV}.tar.gz"
+SRC_URI = "http://downloads.xiph.org/releases/theora/libtheora-${PV}.tar.bz2"
 
 DEPENDS = "libogg"
 
