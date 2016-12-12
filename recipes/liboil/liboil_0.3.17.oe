@@ -20,6 +20,7 @@ SRC_URI = " \
 	file://01_arm-vfp.patch;striplevel=0  \
 	file://02_amd64-cpuid.patch  \
 	file://03_stride-segfaults.patch \
+	file://05_unaligned_access_aarch64.patch \
 "
 
 inherit autotools-autoreconf pkgconfig library
