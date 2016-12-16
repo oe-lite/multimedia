@@ -9,6 +9,9 @@ effects, or draw text, lines, polygons, ellipses and Bézier curves.
 """
 HOMEPAGE = "https://www.imagemagick.org"
 LICENSE = "ImageMagick"
+
+COMPATIBLE_HOST_ARCHS = ".*linux"
+
 DEPENDS = "libbz2 libjpeg libpng libz"
 
 SRC_URI = "ftp://ftp.nluug.nl/pub/ImageMagick/ImageMagick-${PV}.tar.bz2"
