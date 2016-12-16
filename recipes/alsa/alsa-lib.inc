@@ -2,6 +2,8 @@ DEPENDS += "libdl \
 			libpthread \
 			libm"
 
+COMPATIBLE_HOST_ARCHS = ".*linux"
+
 inherit autotools-autoreconf pkgconfig mdev passwd
 
 SRC_URI = "ftp://ftp.alsa-project.org/pub/lib/alsa-lib-${PV}.tar.bz2 \
