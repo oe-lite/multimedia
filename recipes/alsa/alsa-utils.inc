@@ -1,7 +1,8 @@
 DEPENDS = "libasound libpthread libgcc libdl"
 
-SRC_URI = "ftp://ftp.alsa-project.org/pub/utils/alsa-utils-${PV}.tar.bz2 \
-           "
+SRC_URI = "ftp://ftp.alsa-project.org/pub/utils/alsa-utils-${PV}.tar.bz2"
+
+COMPATIBLE_HOST_ARCHS = ".*linux"
 
 EXTRA_OECONF = "--disable-xmlto --disable-nls --disable-alsamixer --without-curses"
 
