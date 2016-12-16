@@ -1,4 +1,4 @@
-COMPATIBLE_HOST_ARCHS = "i.86-.*-.*linux- x86_64-.*-.*linux- powerpc-.*-.*linux- powerpc64-.*-.*linux- arm-.*-.*linux-"
+COMPATIBLE_HOST_ARCHS = "x86_64-.*-.*linux- powerpc-.*-.*linux- powerpc64-.*-.*linux- arm-.*-.*linux-"
 
 CLASS_FLAGS += "gstreamer_api"
 
