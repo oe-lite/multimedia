@@ -1,0 +1,17 @@
+Upstream: not yet submitted
+
+Fixes "configure: error: cannot run test program while cross compiling".
+
+Signed-off-by: Rasmus Villemoes <ravi@prevas.dk>
+
+--- liboil-0.3.17/m4/as-unaligned-access.m4.orig	2016-12-12 12:03:45.500064694 +0000
++++ liboil-0.3.17/m4/as-unaligned-access.m4	2016-12-12 12:04:00.655887560 +0000
+@@ -5,7 +5,7 @@
+   AC_MSG_CHECKING([if unaligned memory access works correctly])
+   if test x"$as_cv_unaligned_access" = x ; then
+     case $host in
+-      alpha*|arm*|hp*|mips*|sh*|sparc*|ia64*)
++      aarch64*|alpha*|arm*|hp*|mips*|sh*|sparc*|ia64*)
+         _AS_ECHO_N([(blacklisted) ])
+         as_cv_unaligned_access=no
+ 	;;

@@ -1,6 +1,6 @@
-DESCRIPTION = "libsndfile"
+SUMMARY = "Libsndfile is a C library for reading and writing files containing sampled sound"
 HOMEPAGE = "http://www.mega-nerd.com/libsndfile/"
-LICENSE = "LGPLv2"
+LICENSE = "LGPL-2.1 | LGPL-3.0"
 
 inherit c c++ autotools pkgconfig library auto-package-utils
 
@@ -9,7 +9,7 @@ DEPENDS = "libm"
 RECIPE_TYPES = "machine native sdk"
 EXTRA_OECONF += "--disable-sqlite --disable-external-libs"
 
-SRC_URI = "http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.25.tar.gz"
+SRC_URI = "http://www.mega-nerd.com/libsndfile/files/libsndfile-${PV}.tar.gz"
 
 AUTO_PACKAGE_UTILS = " \
 	sndfile-cmp	\
