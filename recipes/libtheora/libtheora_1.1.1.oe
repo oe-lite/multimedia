@@ -3,6 +3,8 @@ HOMEPAGE = "http://xiph.org/"
 BUGTRACKER = "https://trac.xiph.org/newticket"
 LICENSE = "BSD"
 
+COMPATIBLE_HOST_ARCHS = ".*linux"
+
 inherit autotools pkgconfig
 
 SRC_URI = "http://downloads.xiph.org/releases/theora/libtheora-${PV}.tar.bz2"

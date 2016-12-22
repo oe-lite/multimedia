@@ -2,6 +2,8 @@ DESCRIPTION = "Library for reading some sort of media format."
 HOMEPAGE = "http://liba52.sourceforge.net/"
 LICENSE = "GPL-2.0+"
 
+COMPATIBLE_HOST_ARCHS = ".*linux"
+
 inherit autotools-autoreconf library
 
 SRC_URI = "http://liba52.sourceforge.net/files/a52dec-${PV}.tar.gz"
