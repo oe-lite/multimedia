@@ -22,7 +22,10 @@ PACKAGES += "\
              ${PN}-alsactl \
              ${PN}-alsaucm \
              ${PN}-udevrules \
-             ${PN}-systemd"
+             ${PN}-systemd \
+             ${PN}-alsabat \
+             ${PN}-alsatplg \
+             ${PN}-alsa-info.sh"
 
 FILES_${PN} = ""
 FILES_${PN}-aplay       = "${bindir}/aplay ${bindir}/arecord"
@@ -39,6 +42,9 @@ FILES_${PN}-alsaconf    = "${sbindir}/alsaconf"
 FILES_${PN}-alsaucm     = "${bindir}/alsaucm"
 FILES_${PN}-udevrules   = "${base_libdir}/udev/rules.d/"
 FILES_${PN}-systemd     = "${base_libdir}/systemd/"
+FILES_${PN}-alsabat     = "${bindir}/alsabat ${sbindir}/alsabat-test.sh"
+FILES_${PN}-alsatplg    = "${bindir}/alsatplg"
+FILES_${PN}-alsa-info.sh = "${sbindir}/alsa-info.sh"
 
 RD = "libasound libpthread libdl"
 RDEPENDS_${PN}-aplay       = "${RD} libgcc"
@@ -53,6 +59,9 @@ RDEPENDS_${PN}-alsactl     = "${RD}"
 RDEPENDS_${PN}-aseqdump    = "${RD}"
 RDEPENDS_${PN}-alsaconf    = "${RD}"
 RDEPENDS_${PN}-systemd     = "${PN}-alsactl"
+RDEPENDS_${PN}-alsabat     = "${RD}"
+RDEPENDS_${PN}-alsatplg    = "${RD}"
+RDEPENDS_${PN}-alsa-info.sh = "${RD}"
 RDEPENDS_${PN} = "${PN}-aplay ${PN}-amixer ${PN}-speakertest ${PN}-midi \
 ${PN}-aconnect ${PN}-aseqnet ${PN}-iecset ${PN}-alsactl ${PN}-aseqdump ${PN}-alsaconf \
 ${PN}-alsaloop \
