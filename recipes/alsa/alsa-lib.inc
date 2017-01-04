@@ -40,6 +40,8 @@ RPROVIDES_${PN}-alsa-conf-base = "alsa-conf-base"
 RPROVIDES_${PN}-alsa-doc = "alsa-doc"
 RPROVIDES_${PN}-alsa-dev = "alsa-dev"
 
+PROVIDES_${PN}-libasound[qa] += "allow-missing-provides"
+
 FILES_${PN}-dbg += "${libdir}/alsa-lib/*/.debu*"
 FILES_${PN}-libasound = "${libdir}/libasound.so.* ${mdevdir}"
 FILES_${PN}-alsa-server = "${bindir}/*"
@@ -67,3 +69,6 @@ libm \
 libdl \
 libc \
 "
+
+DEPENDS_${PN}-alsa-server = "libasound libc libdl libm libpthread"
+RDEPENDS_${PN}-alsa-server = "libasound libc libdl libm libpthread"
