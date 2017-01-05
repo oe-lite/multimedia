@@ -4,6 +4,7 @@ LICENSE = "MPL LGPL2"
 COMPATIBLE_HOST_ARCHS = "i.86-.*-.*linux- x86_64-.*-.*linux- powerpc-.*-.*linux- powerpc64-.*-.*linux- arm-.*-.*linux-"
 
 SRC_URI = "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mp4v2/mp4v2-${PV}.tar.bz2"
+SRC_URI += "file://disable_help2man.patch"
 
 inherit c++ autotools auto-package-utils library
 
