@@ -1,0 +1,31 @@
+help2man generates a trivial man page for $command from the output of
+"$command --help". This obviously doesn't work when cross-compiling,
+but the build system unconditionally picks up help2man if it is
+available on the host, and there's no way to disable it with a
+configure flag.
+
+Upstream-status: inappropriate
+Source: OE-lite
+
+--- mp4v2-1.9.1/doc/GNUmakefile.mk.orig	2017-01-05 23:20:11.376734888 +0000
++++ mp4v2-1.9.1/doc/GNUmakefile.mk	2017-01-05 23:20:29.076803352 +0000
+@@ -59,13 +59,13 @@
+ M4.cmd   = $(M4) $(M4.flags) $(1) > $(2)
+ M4.deps  = $(BUILD/)project/project.m4
+ 
+-ifeq ($(FOUND_HELP2MAN),yes)
+-HELP2MAN       = help2man
+-HELP2MAN.flags = -m "$(PROJECT_name) Utilities" -N
+-HELP2MAN.cmd   = $(HELP2MAN) $(HELP2MAN.flags) ./$(1) -o $(2)
+-else
++#ifeq ($(FOUND_HELP2MAN),yes)
++#HELP2MAN       = help2man
++#HELP2MAN.flags = -m "$(PROJECT_name) Utilities" -N
++#HELP2MAN.cmd   = $(HELP2MAN) $(HELP2MAN.flags) ./$(1) -o $(2)
++#else
+ HELP2MAN.cmd = touch $(2)
+-endif
++#endif
+ 
+ MAKEINFO.flags      = -I$(DOC.in/)texi -I$(DOC.out/)texi
+ MAKEINFO.flags.html = --html --no-headers --no-split
