@@ -1,6 +1,6 @@
 DESCRIPTION = "FLAC stands for Free Lossless Audio Codec, an audio format similar to MP3, but lossless."
 HOMEPAGE = "https://xiph.org/flac"
-LICENSE = "GFDL-1.2 & GPLv2.0+ & LGPLv2.1+ & BSD"
+LICENSE = "GFDL-1.2 GPL-2.0 LGPL-2.1 BSD-3-Clause"
 
 inherit auto-package-libs configure-use c++
 SRC_URI = "http://downloads.xiph.org/releases/flac/flac-${PV}.tar.xz"
