@@ -1,12 +1,9 @@
 DESCRIPTION = "FLAC stands for Free Lossless Audio Codec, an audio format similar to MP3, but lossless."
-HOMEPAGE = "http://flac.sourceforge.net/"
-BUGTRACKER = "http://sourceforge.net/tracker/?group_id=13478&atid=113478"
+HOMEPAGE = "https://xiph.org/flac"
 LICENSE = "GFDL-1.2 & GPLv2.0+ & LGPLv2.1+ & BSD"
 
-
 inherit auto-package-libs configure-use c++
-require conf/fetch/sourceforge.conf
-SRC_URI = "${SOURCEFORGE_MIRROR}/flac/flac-${PV}.tar.gz"
+SRC_URI = "http://downloads.xiph.org/releases/flac/flac-${PV}.tar.xz"
 
 CONFIGURE_USE_FLAGS += "use=ogg:depend=libogg"
 
