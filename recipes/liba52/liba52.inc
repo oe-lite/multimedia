@@ -16,3 +16,5 @@ EXTRA_OECONF = "--enable-shared "
 
 inherit auto-package-utils
 AUTO_PACKAGE_UTILS = "a52dec extract_a52"
+AUTO_PACKAGE_UTILS_DEPENDS = "libc libm ${PN}"
+AUTO_PACKAGE_UTILS_RDEPENDS = "libc libm ${PN}"
