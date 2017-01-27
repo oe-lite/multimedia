@@ -11,6 +11,8 @@ S = "${SRCDIR}/a52dec-${PV}"
 SRC_URI += "file://buildcleanup.patch"
 
 DEPENDS = "libm"
+DEPENDS_${PN} = "libc libm"
+RDEPENDS_${PN} = "libc libm"
 
 EXTRA_OECONF = "--enable-shared "
 
