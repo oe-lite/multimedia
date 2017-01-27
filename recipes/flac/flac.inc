@@ -10,14 +10,15 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/flac/flac-${PV}.tar.gz"
 
 CONFIGURE_USE_FLAGS += "use=ogg:depend=libogg"
 
-DEPENDS = "libm libgcc \
-           libstdc++"
+DEPENDS = "libm libc"
 
 AUTO_PACKAGE_LIBS = "FLAC FLAC++"
 AUTO_PACKAGE_LIBS_RDEPENDS:USE_ogg = " libogg"
 AUTO_PACKAGE_LIBS_DEV_DEPENDS:USE_ogg = " libogg"
 
-RDEPENDS_${PN}-libflac = "libm libgcc"
+DEPENDS_${PN}-libflac = "libc libm"
+RDEPENDS_${PN}-libflac = "libc libm"
+DEPENDS_${PN}-libflac++ = "libc libflac libm libstdc++"
 RDEPENDS_${PN}-libflac++ = "libflac libstdc++"
 FILES_${PN}-libflac-dev += "${includedir}/FLAC \
     ${libdir}/pkgconfig/flac.pc \
@@ -30,7 +31,8 @@ FILES_${PN}-dev = ""
 
 PROVIDES_${PN} = "metaflac"
 FILES_${PN} = "${bindir}/*"
-RDEPENDS_${PN} = "${PN}-libflaclibm"
+DEPENDS_${PN} = "libc libm libflac"
+RDEPENDS_${PN} = "${PN}-libflac libm libc"
 RDEPENDS_${PN}:>USE_ogg = " libogg"
 DEPENDS_${PN}:>USE_ogg = " libogg"
 
