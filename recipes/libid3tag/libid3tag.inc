@@ -9,3 +9,5 @@ SRC_URI = "ftp://ftp.mars.org/pub/mpeg/libid3tag-${PV}.tar.gz"
 S = "${SRCDIR}/libid3tag-${PV}"
 
 DEPENDS = "libc libgcc libz"
+DEPENDS_${PN} = "libc libz"
+RDEPENDS_${PN} = "libc libz"
