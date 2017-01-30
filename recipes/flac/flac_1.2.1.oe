@@ -1,5 +1,6 @@
 require ${PN}.inc
 
+SRC_URI = "http://downloads.xiph.org/releases/flac/flac-${PV}.tar.gz"
 SRC_URI += "file://disable-xmms-plugin.patch"
 SRC_URI += "file://flac-gcc43-fixes.patch"
 SRC_URI += "file://14_metadata_iterators_memleak.patch"
