@@ -7,6 +7,9 @@ SRC_URI = "http://downloads.xiph.org/releases/flac/flac-${PV}.tar.xz"
 
 CONFIGURE_USE_FLAGS += "use=ogg:depend=libogg"
 
+PROVIDES_${PN}-libflac++[qa] += "allow-missing-provides"
+PROVIDES_${PN}-libflac[qa] += "allow-missing-provides"
+
 DEPENDS = "libm libc"
 
 AUTO_PACKAGE_LIBS = "FLAC FLAC++"
