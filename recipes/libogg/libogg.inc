@@ -8,5 +8,7 @@ inherit autotools-autoreconf pkgconfig library
 
 SRC_URI = "http://downloads.xiph.org/releases/ogg/libogg-${PV}.tar.gz"
 
+PROVIDES_${PN}[qa] += "allow-missing-provides"
+
 DEPENDS_${PN} = "libc"
 RDPENDS_${PN} = "libc"
