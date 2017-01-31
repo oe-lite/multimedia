@@ -1,10 +1,19 @@
 DESCRIPTION = "TagLib is a library for reading and editing the meta-data of several popular audio formats"
-HOMEPAGE = "http://developer.kde.org/~wheeler/taglib.html"
-LICENSE = "LGPL"
+HOMEPAGE = "http://taglib.org"
+LICENSE = "LGPL-2.1 MPL-1.1"
 
-inherit c++ pkgconfig auto-package-libs
+SRC_URI = "http://taglib.github.io/releases/${PN}-${PV}.tar.gz"
+
+inherit c++ pkgconfig auto-package-libs cmake
+
+PROVIDES_${PN}-libtag[qa] += "allow-missing-provides"
+PROVIDES_${PN}-libtag-c[qa] += "allow-missing-provides"
 
 DEPENDS = "libstdc++"
+
+EXTRA_OE_CMAKE_CONF = " \
+  -DCMAKE_BUILD_TYPE=Release \
+"
 
 AUTO_PACKAGE_LIBS = "tag tag_c"
 
