@@ -10,6 +10,8 @@ SRC_URI = "http://liba52.sourceforge.net/files/a52dec-${PV}.tar.gz"
 S = "${SRCDIR}/a52dec-${PV}"
 SRC_URI += "file://buildcleanup.patch"
 
+PROVIDES_${PN}[qa] += "allow-missing-provides"
+
 DEPENDS = "libm"
 DEPENDS_${PN} = "libc libm"
 RDEPENDS_${PN} = "libc libm"
