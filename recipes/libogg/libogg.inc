@@ -7,3 +7,6 @@ LICENSE = "BSD-3-Clause"
 inherit autotools-autoreconf pkgconfig library
 
 SRC_URI = "http://downloads.xiph.org/releases/ogg/libogg-${PV}.tar.gz"
+
+DEPENDS_${PN} = "libc"
+RDPENDS_${PN} = "libc"
