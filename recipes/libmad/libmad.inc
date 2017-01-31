@@ -13,6 +13,8 @@ inherit autotools pkgconfig library
 
 S = "${SRCDIR}/libmad-${PV}"
 
+PROVIDES_${PN}[qa] += "allow-missing-provides"
+
 EXTRA_OECONF = "-enable-speed --enable-shared"
 # The ASO's don't take any account of thumb...
 EXTRA_OECONF_append_thumb = " --disable-aso --enable-fpm=default"
