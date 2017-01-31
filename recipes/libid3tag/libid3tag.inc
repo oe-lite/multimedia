@@ -8,6 +8,8 @@ inherit autotools pkgconfig library
 SRC_URI = "ftp://ftp.mars.org/pub/mpeg/libid3tag-${PV}.tar.gz"
 S = "${SRCDIR}/libid3tag-${PV}"
 
+PROVIDES_${PN}[qa] += "allow-missing-provides"
+
 DEPENDS = "libc libgcc libz"
 DEPENDS_${PN} = "libc libz"
 RDEPENDS_${PN} = "libc libz"
