@@ -6,6 +6,9 @@ SRC_URI = "http://taglib.github.io/releases/${PN}-${PV}.tar.gz"
 
 inherit c++ pkgconfig auto-package-libs cmake
 
+PROVIDES_${PN}-libtag[qa] += "allow-missing-provides"
+PROVIDES_${PN}-libtag-c[qa] += "allow-missing-provides"
+
 DEPENDS = "libstdc++"
 
 EXTRA_OE_CMAKE_CONF = " \
